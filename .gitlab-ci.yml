@@ -1,0 +1,12 @@
+image: google/dart:2.1
+pages:
+  stage: deploy
+  script:
+  - pub global activate webdev
+  - /root/.pub-cache/bin/webdev build --output web:build
+  - mv build public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
