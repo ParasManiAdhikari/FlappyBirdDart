@@ -3,6 +3,7 @@ pages:
   stage: deploy
   script:
   - pub global activate webdev
+  - pub get
   - /root/.pub-cache/bin/webdev build --output web:build
   - mv build public
   artifacts:
