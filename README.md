@@ -34,7 +34,7 @@ aber diese Basis-Kenntnisse sollen Ihnen helfen schnell Ihren persönlichen Eins
 Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt worden sein
 (falls nicht, wenden Sie sich an einen Betreuer).
 
-### Starten Sie die WebIDE
+### Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
 
 1. Navigieren Sie zu __Repository__ -> __Files__
 2. Klicken Sie auf __WebIDE__
@@ -55,10 +55,10 @@ Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt 
     ```
 5. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 6. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-7. Navigieren Sie dann mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/
+7. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre>
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
-### Stylen Sie das Schachbrett
+### Gestalten Sie das Schachbrett mit Hilfe von CSS
 
 1. Öffnen Sie in der __WebIDE__ die Datei: __web/style.css__
 2. Ergänzen Sie die folgenden CSS Regeln
@@ -92,10 +92,14 @@ Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt 
     ```
 3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-5. Navigieren Sie dann mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/
+5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre>
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
-### Nutzen Sie Dart um Schachfiguren auf ihrem Schachbrett zu platzieren
+___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
+etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
+nicht immer vom Webserver nachgeladen (da sich diese selten ändern!)._
+
+### Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
 
 1. Öffnen Sie in der __WebIDE__ die Datei: __web/main.dart__
 2. Ergänzen Sie in der `main()`-Methode folgende Codezeilen.
@@ -118,5 +122,11 @@ Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt 
     ```
 3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-5. Navigieren Sie dann mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/
+5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre>
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
+
+___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
+etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
+nicht immer vom Webserver nachgeladen (da sich diese selten ändern!)._
+
+Das Resultat sollte in etwa wie [hier](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen.
