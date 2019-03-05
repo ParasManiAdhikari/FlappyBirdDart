@@ -1,7 +1,4 @@
-## An absolute bare-bones web app
-
-_Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE)._
+## A bare-bones web app
 
 Benutzen Sie dieses Projekt als Ausgangspunkt für Ihre eigenen Projekte.
 Es ist so konfiguriert, dass Sie einfache
@@ -10,7 +7,7 @@ Es ist so konfiguriert, dass Sie einfache
 
 mit einer einfachen Build-Pipeline auf GitLab-Pages deployen können.
 
-## Erste Schritte
+### Erste Schritte
 
 In den folgenden Schritten lernen Sie:
 
