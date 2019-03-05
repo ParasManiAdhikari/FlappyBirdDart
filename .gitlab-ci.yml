@@ -1,4 +1,11 @@
 image: google/dart:2.1
+
+before_script:
+  - export PUB_CACHE=$PWD/.pub_cache/
+  - pub version
+  - pub get
+  - pub upgrade
+
 pages:
   stage: deploy
   script:
