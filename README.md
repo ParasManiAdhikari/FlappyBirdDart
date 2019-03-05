@@ -26,15 +26,13 @@ aber diese Basis-Kenntnisse sollen Ihnen helfen schnell Ihren persönlichen Eins
 
 ### Legen Sie ein neues Projekt an
 
-1. Loggen Sie sich in GitLab ein.
-2. Navigieren Sie zu __New Repository__ -> __Import Repository__ -> __Repo by URL__
-3. Geben Sie die folgenden Daten an:
-    - Git Repository URL: https://bitbucket.org/nanekratzke/barebones.git
-    - Project name: chess
-    - Project slug: chess
-    - Visibility level: internal
-4. Klicken Sie auf __Create project__
-5. Warten Sie den Import Process ab (kann etwas dauern)
+1. Loggen Sie sich in GitLab ein (dieselben Access credentials wie Moodle).
+2. Navigieren Sie in einem Browser zu: https://git.mylab.th-luebeck.de/webtech/barebones
+4. Klicken Sie auf __Fork__
+5. Wählen Sie Ihren Namen als Namespace
+
+Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt worden sein
+(falls nicht, wenden Sie sich an einen Betreuer).
 
 ### Starten Sie die WebIDE
 
@@ -57,7 +55,7 @@ aber diese Basis-Kenntnisse sollen Ihnen helfen schnell Ihren persönlichen Eins
     ```
 5. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 6. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-7. Navigieren Sie dannn mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/chess/
+7. Navigieren Sie dann mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ### Stylen Sie das Schachbrett
@@ -94,7 +92,7 @@ aber diese Basis-Kenntnisse sollen Ihnen helfen schnell Ihren persönlichen Eins
     ```
 3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-5. Navigieren Sie dannn mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/chess/
+5. Navigieren Sie dann mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ### Nutzen Sie Dart um Schachfiguren auf ihrem Schachbrett zu platzieren
@@ -120,5 +118,5 @@ aber diese Basis-Kenntnisse sollen Ihnen helfen schnell Ihren persönlichen Eins
     ```
 3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-5. Navigieren Sie dannn mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/chess/
+5. Navigieren Sie dann mit einem Browser auf: http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
