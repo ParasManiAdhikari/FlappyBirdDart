@@ -14,7 +14,7 @@ In den folgenden Schritten lernen Sie:
 - Wie Sie ein neues GitLab Projekt anlegen.
 - Wie Sie die WebIDE von GitLab für einfache Änderungen nutzen können.
 - Wie Sie mit CSS Regeln HTML-Dokumente gestalten können.
-- Wie Sie mit Dart HTML-Dokumente manipulieren können.
+- Wie Sie mit Dart den DOM-Tree manipulieren können.
 - Wie Sie GitLab CI dazu nutzen können, ein Projekt automatisiert zu bauen und auf GitLab Pages zu deployen.
 
 Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben.
@@ -129,3 +129,20 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
 `Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
 
 Das Resultat sollte in etwa wie [hier](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen.
+
+### Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
+
+Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
+
+1. `index.html` (Versuchen Sie die Nummerierung der Zeilen anzupassen.)
+2. `style.css` (Versuchen Sie die Farbgebung des Schachbretts anzupassen.)
+3. `main.dart` (Versuchen Sie rauszufinden, welche Zeilen für welche Figuren verantwortlich sind und passen Sie diese an.)
+
+eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht. Wenn Sie damit fertig sind, wenden Sie sich bitte an einen Betreuer und erklären:
+
+1. Welche Änderungen in der `index.html` erforderlich waren und warum?
+2. Welche Änderungen in der `style.css` erforderlich waren und warum?
+3. Welche Änderungen in der `main.dart` erforderlich waren und warum?
+
+Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwickelndes Spiel nutzen können ;-)
+
