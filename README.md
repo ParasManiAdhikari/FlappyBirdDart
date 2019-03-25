@@ -94,7 +94,8 @@ Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt 
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
 etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
-nicht immer vom Webserver nachgeladen (da sich diese selten ändern!)._
+nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
+`Shift` + `Strg` + `r`, um die Webseite am Browsercache vorbei neu zu laden._
 
 ### Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
 
@@ -124,6 +125,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!)._
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
 etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
-nicht immer vom Webserver nachgeladen (da sich diese selten ändern!)._
+nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
+`Shift` + `Strg` + `r`, um die Webseite am Browsercache vorbei neu zu laden._
 
 Das Resultat sollte in etwa wie [hier](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen.
