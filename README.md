@@ -28,7 +28,7 @@ aber diese Basis-Kenntnisse sollen Ihnen helfen schnell Ihren persönlichen Eins
 4. Klicken Sie auf __Fork__
 5. Wählen Sie Ihren Namen als Namespace
 
-Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt worden sein
+Es sollte nun unter Ihrem Account ein neues Projekt namens "barebones" angelegt worden sein
 (falls nicht, wenden Sie sich an einen Betreuer).
 
 ### Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
