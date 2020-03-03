@@ -1,4 +1,4 @@
-image: google/dart:2.1
+image: google/dart:2.7
 
 before_script:
   - export PATH="$PATH":"$HOME/.pub-cache/bin"
