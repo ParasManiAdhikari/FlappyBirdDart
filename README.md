@@ -89,7 +89,7 @@ Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt 
     ```
 3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre>
+5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre> (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers)
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
@@ -120,7 +120,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
     ```
 3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre>
+5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre> (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers)
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
@@ -128,11 +128,11 @@ etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere 
 nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
 `Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
 
-Das Resultat sollte in etwa wie [hier](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen.
+Das Resultat sollte in etwa wie [hier](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers).
 
 ### Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
 
-Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
+Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers). Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
 
 1. `index.html` (Versuchen Sie die Nummerierung der Zeilen anzupassen.)
 2. `style.css` (Versuchen Sie die Farbgebung des Schachbretts anzupassen.)
