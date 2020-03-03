@@ -50,7 +50,7 @@ Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt 
         <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
     ```
-5. Wählen Sie __Commit to master branch__ und betätigen Sie dann __Commit__
+5. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 6. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
 7. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre> (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers)
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
@@ -87,7 +87,7 @@ Es sollte nun unter ihrem Account ein neues Projekt namens "barebones" angelegt 
         font-size: 20px;
     }
     ```
-3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
+3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
 5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre> (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers)
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
@@ -118,7 +118,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
     querySelector('#chess tr:nth-child(9) td:nth-child(5)').innerHtml = "&#9819;";
     querySelector('#chess tr:nth-child(9) td:nth-child(6)').innerHtml = "&#9818;";
     ```
-3. Klicken Sie auf __Commit__ und dann auf __Stage & Commit__
+3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
 5. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre> (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers)
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
