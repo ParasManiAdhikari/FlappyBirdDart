@@ -46,7 +46,7 @@ Es sollte nun unter Ihrem Account ein neues Projekt namens "barebones" angelegt 
 1. Navigieren Sie zu __Repository__ -> __Files__
 2. Klicken Sie auf __WebIDE__
 3. Öffnen Sie die Datei: __web/index.html__
-4. Fügen Sie hinter `<div id="output"></div>` folgenden Inhalt ein:
+4. Fügen Sie __hinter__ `<div id="output"></div>` folgenden Inhalt ein:
     ```HTML
     <table id="chess">
         <tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td></tr>
