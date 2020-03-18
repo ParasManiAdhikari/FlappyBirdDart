@@ -14,7 +14,7 @@ Für Ihr Projekt wird Ihnen später noch ein vorbereitetes Gruppen-Repository ge
 - `web/`: In diesem Ordner befindet sich Ihr Dart-, HTML- und CSS-Code
 - `README.md`: Diese Datei. Sie ist in [Markdown](https://git.mylab.th-luebeck.de/help/user/markdown.md) formatiert, und wird auf der Hauptseite des Projektes direkt angezeigt. Im Laufe des Semesters können Sie hier Dokumentation bzw. ein "Getting Started" Ihres Spieles unterbringen.
 - `pubspec.yaml` und `analysis_options.yaml`: Konfiguration des Dart-Builds bzw. der statischen Code-Analyse.
-- `.gitlab-ci.yml` und `Dockerfile`: Anweisungen an GitLab, wie Ihr Projekt gebuildet und in ein Docker-Image verpackt werden soll. Den Inhalt dieser Dateien sollten Sie in aller Regel nicht anfassen, es sei denn, Sie wissen genau, was Sie tun. Der Build-Prozess wird bei jeder Veränderung des Projektes angestoßen, sobald er durchlaufen ist wird das Deployment auf https://webtech.mylab.th-luebeck.de/ss2020/team-0DIGIT-LETTER/ aktualisiert.
+- `.gitlab-ci.yml` und `Dockerfile`: Anweisungen an GitLab, wie Ihr Projekt gebuildet auf GitLab-Pages veröffentlicht werden soll. Der Build-Prozess wird bei jeder Veränderung des Projektes angestoßen, sobald er durchlaufen ist wird das Deployment auf http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/ aktualisiert. Er unterscheidet sich etwas von dem Ihres späteren Gruppen-Projektes.
 - `.gitignore`: Hier eingetragene Dateien und Pfade werden von Git, z.B. bei der Ausführung von `git status` oder `git add .`, ignoriert. Sie können diese Datei nach belieben erweitern.
 
 ### Erste Schritte
