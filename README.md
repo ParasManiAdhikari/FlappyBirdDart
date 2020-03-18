@@ -62,12 +62,12 @@ Es sollte nun unter Ihrem Account ein neues Projekt namens "barebones" angelegt 
     ```
 5. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 6. Warten Sie, bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde. Sie können den Buildprozess wie folgt nachverfolgen:
-   - Navigieren Sie zu __CI/CD__ -> __Pipelines__
+   - Navigieren Sie unter Ihrem Projekt (evtl. müssen Sie dazu die Web-IDE verlassen) zu __CI/CD__ -> __Pipelines__
        - Es wird eine Tabelle aller vergangenen, und auch des aktuellen Buildprozesses angezeigt. Das blaue runde Icon in der Spalte "Stages" zeigt an, dass der build läuft. Sobald dieser abgeschlossen ist, wird stattdessen ein grünes Häkchen angezeigt.
    - Klicken Sie bei dem obersten Eintrag auf das blaue Icon in der Spalte "Stages"
    - Klicken Sie auf "pages"
        - Sie sehen nun die Konsolenausgabe des aktuellen Buildprozesses.
-7. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre> (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers: Rechtsklick auf den Link -> In privatem Fenster öffnen)
+7. Öffnen Sie dann mit einem Browser: <pre>http://[vorname.nachname].pages.mylab.th-luebeck.de/barebones/</pre> (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers)
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 #### Gestalten Sie das Schachbrett mit Hilfe von CSS
