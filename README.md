@@ -128,11 +128,11 @@ etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere 
 nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
 `Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
 
-Das Resultat sollte in etwa wie [hier](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers).
+Das Resultat sollte in etwa wie [hier](https://webtech.mylab.th-luebeck.de/chessboard) aussehen.
 
 ### Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
 
-Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](http://nane.kratzke.pages.mylab.th-luebeck.de/barebones/) aussehen (sollten HTTPS Fehler auftreten, öffnen Sie die Seite ggf. im Inkognito Modus ihres Browsers). Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
+Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](https://webtech.mylab.th-luebeck.de/chessboard) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
 
 1. `index.html` (Versuchen Sie die Nummerierung der Zeilen anzupassen.)
 2. `style.css` (Versuchen Sie die Farbgebung des Schachbretts anzupassen.)
