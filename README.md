@@ -61,8 +61,7 @@ Es sollte nun unter Ihrem Account ein neues Projekt namens "barebones" angelegt 
     </table>
     ```
 5. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
-6. Warten Sie bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde.
-6. Warten Sie, bis die Build-Pipeline Ihre Seite gebaut hat und diese auf Ihrer URL deployt wurde. Sie können den Buildprozess wie folgt nachverfolgen:
+6. Warten Sie, bis die Build-Pipeline Ihre Seite gebaut hat und diese auf GitLab Pages deployt wurde. Sie können den Buildprozess wie folgt nachverfolgen:
    - Navigieren Sie zu __CI/CD__ -> __Pipelines__
        - Es wird eine Tabelle aller vergangenen, und auch des aktuellen Buildprozesses angezeigt. Das blaue runde Icon in der Spalte "Stages" zeigt an, dass der build läuft. Sobald dieser abgeschlossen ist, wird stattdessen ein grünes Häkchen angezeigt.
    - Klicken Sie bei dem obersten Eintrag auf das blaue Icon in der Spalte "Stages"
