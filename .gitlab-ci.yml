@@ -25,7 +25,7 @@ registry-cred:
 issuer:
   stage: prepare
   script:
-  - mo deploy/cert-issuer.yaml | kubectl apply -f -
+  - kubectl describe issuer letsencrypt || mo deploy/cert-issuer.yaml | kubectl apply -f -
 
 webapp:
   image: google/dart:2.10
