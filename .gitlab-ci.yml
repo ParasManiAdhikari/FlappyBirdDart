@@ -1,17 +1,67 @@
-image: google/dart:2.7
+# Build und Deployment Pipeline
+# Do not change until you know what you are doing !!!
 
-before_script:
-  - export PATH="$PATH":"$HOME/.pub-cache/bin"
-  - pub global activate webdev
+image: "transit/kubectl-plus:v1.19.4"
 
-pages:
-  stage: deploy
+variables:
+  DOMAIN: "webtech.th-luebeck.dev"
+
+stages:
+- prepare
+- compile
+- build
+- deploy
+- destroy
+
+registry-cred:
+  stage: prepare
   script:
+  - kubectl delete secret gitlab-registry-credentials || true
+  - "kubectl create secret docker-registry gitlab-registry-credentials \
+              --docker-server=$CI_REGISTRY \
+              --docker-username=image-registry \ 
+              --docker-password=$CI_REGISTRY_TOKEN"
+
+issuer:
+  stage: prepare
+  script:
+  - mo deploy/cert-issuer.yaml | kubectl apply -f -
+
+webapp:
+  image: google/dart:2.10
+  stage: compile
+  script:
+  - pub global activate webdev
   - pub get
   - webdev build --output web:build
-  - mv build public
   artifacts:
     paths:
-    - public
-  only:
-  - master
+    - build
+
+container:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+  - mkdir -p /kaniko/.docker
+  - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+  - ls -lah build/
+  - /kaniko/executor --context . --destination $CI_REGISTRY_IMAGE/webapp-$CI_COMMIT_REF_NAME:latest
+
+deploy:
+  stage: deploy
+  script:
+  - mo deploy/webapp-dep.yaml | kubectl delete -f - || true
+  - mo deploy/webapp-dep.yaml | kubectl apply -f -
+  - mo deploy/webapp-svc.yaml | kubectl apply -f -
+  - HOST=webapp-$GITLAB_USER_ID.$DOMAIN mo deploy/webapp-ing.yaml
+  - HOST=webapp-$GITLAB_USER_ID.$DOMAIN mo deploy/webapp-ing.yaml | kubectl apply -f -
+
+terminate:
+  stage: destroy
+  when: manual
+  script:
+  - mo deploy/webapp-dep.yaml | kubectl delete -f - || true
+  - mo deploy/webapp-svc.yaml | kubectl delete -f -
+  - HOST=webapp-$GITLAB_USER_ID.$DOMAIN mo deploy/webapp-ing.yaml | kubectl delete -f -
