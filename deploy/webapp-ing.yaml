@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-{{ CI_COMMIT_REF_NAME }}-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/limit-rpm: "30"
+    cert-manager.io/issuer: "letsencrypt"
+spec:
+  rules:
+  - host: "{{ HOST }}"
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ CI_COMMIT_REF_NAME }}-webapp-svc
+            port:
+              number: 80
+  tls:
+  - secretName: {{ CI_COMMIT_REF_NAME }}-webapp-ingress-cert
+    hosts: ["{{ HOST }}"]

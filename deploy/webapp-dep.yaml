@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ CI_COMMIT_REF_NAME }}-webapp
+spec:
+  selector:
+    matchLabels:
+      app: {{ CI_COMMIT_REF_NAME }}-webapp
+  template:
+    metadata:
+      labels:
+        app: {{ CI_COMMIT_REF_NAME }}-webapp
+    spec:
+      imagePullSecrets:
+      - name: gitlab-registry-credentials
+      containers:
+      - name: app
+        image: {{ CI_REGISTRY_IMAGE }}/webapp-{{ CI_COMMIT_REF_NAME }}:latest
+        ports:
+        - containerPort: 80
