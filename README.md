@@ -88,7 +88,7 @@ SIE --> | GitLab | -Commits-> | Deployment Pipeline | --> | K8s Cluster | <-- WW
    - Klicken Sie gerne auf die einzlnen Jobs. Sie sehen dort die Konsolenausgaben der einzelnen Buildjobs (ggf. für Fehlersuchen ganz hilfreich).
 7. Öffnen Sie dann mit einem Browser: 
    ```
-   https://webapp-[userid].webtech.th-luebeck.dev
+   https://webapp-[userid]-master.webtech.th-luebeck.dev
    ```
    Als `userid` geben Sie bitte Ihre Gitlab User Id an. Diese finden Sie unter den GitLab-[Profileinstellungen](https://git.mylab.th-luebeck.de/-/profile) `-> User ID`.
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
@@ -127,7 +127,7 @@ SIE --> | GitLab | -Commits-> | Deployment Pipeline | --> | K8s Cluster | <-- WW
     ```
 3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[userid].webtech.th-luebeck.dev</pre>
+5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[userid]-master.webtech.th-luebeck.dev</pre>
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
@@ -158,7 +158,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
     ```
 3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[userid].webtech.th-luebeck.dev</pre>
+5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[userid]-master.webtech.th-luebeck.dev</pre>
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
