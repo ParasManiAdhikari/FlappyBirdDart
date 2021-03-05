@@ -5,7 +5,7 @@ Benutzen Sie dieses Projekt als Ausgangspunkt für die erste Aufgabe. Es ist so 
 
 - Dart 2 Web-Projekte
 
-mit einer einfachen Build-Pipeline deployen können. Das Repository für Ihr Projekt werden Sie analog forken und aufbauen.
+mit einer Build-Pipeline deployen können. Das Repository für Ihr Projekt werden Sie analog forken und aufbauen.
 
 In den folgenden Schritten lernen Sie:
 
