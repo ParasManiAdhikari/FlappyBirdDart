@@ -15,7 +15,7 @@ In den folgenden Schritten lernen Sie:
 - Wie Sie mit Dart den DOM-Tree manipulieren können.
 - Wie Sie GitLab CI dazu nutzen können, ein Projekt automatisiert zu bauen und in Kubernetes zu deployen.
 
-Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist sicher noch sehr weit von dem zu entwickelnden Spiel entfernt, aber diese Basis-Kenntnisse sollen Ihnen helfen schnell Ihren persönlichen Einstieg in Ihr Spielprojekt zu finden.
+Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist sicher noch sehr weit von dem zu entwickelnden Spiel entfernt, aber diese Basis-Kenntnisse sollen Ihnen helfen, schnell Ihren persönlichen Einstieg in Ihr Spielprojekt zu finden.
 
 ## Aufbau des Projektes
 
