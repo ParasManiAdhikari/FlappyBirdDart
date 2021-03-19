@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: webapp-{{ CI_COMMIT_REF_NAME }}-ingress
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt"
+    cert-manager.io/cluster-issuer: "letsencrypt-{{ N }}"
 spec:
   rules:
   - host: "{{ HOST }}"
