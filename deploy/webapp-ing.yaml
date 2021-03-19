@@ -3,8 +3,7 @@ kind: Ingress
 metadata:
   name: webapp-{{ CI_COMMIT_REF_NAME }}-ingress
   annotations:
-    nginx.ingress.kubernetes.io/limit-rpm: "30"
-    cert-manager.io/issuer: "letsencrypt"
+    cert-manager.io/cluster-issuer: "letsencrypt"
 spec:
   rules:
   - host: "{{ HOST }}"
