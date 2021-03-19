@@ -22,11 +22,6 @@ registry-cred:
               --docker-username=image-registry \ 
               --docker-password=$CI_REGISTRY_TOKEN"
 
-issuer:
-  stage: prepare
-  script:
-  - kubectl describe issuer letsencrypt || mo deploy/cert-issuer.yaml | kubectl apply -f -
-
 webapp:
   image: google/dart:2.12
   stage: compile
