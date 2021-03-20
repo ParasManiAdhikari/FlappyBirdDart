@@ -1,15 +1,14 @@
-
 # A bare-bones web app
 
 Benutzen Sie dieses Projekt als Ausgangspunkt für die erste Aufgabe. Es ist so konfiguriert, dass Sie einfache
 
 - Dart 2 Web-Projekte
 
-mit einer Build-Pipeline deployen können. Das Repository für Ihr Projekt werden Sie analog forken und aufbauen.
+mit einer Build-Pipeline deployen können. Das Repository für Ihr Projekt wird analog aufgebaut sein.
 
 In den folgenden Schritten lernen Sie:
 
-- Wie Sie ein neues GitLab Projekt anlegen.
+- Wie Sie mit einem GitLab Projekt umgehen.
 - Wie Sie die WebIDE von GitLab für einfache Änderungen nutzen können.
 - Wie Sie mit CSS Regeln HTML-Dokumente gestalten können.
 - Wie Sie mit Dart den DOM-Tree manipulieren können.
@@ -19,25 +18,14 @@ Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist siche
 
 ## Aufbau des Projektes
 
-- `web/`: In diesem Ordner befindet sich Ihr Dart-, HTML- und CSS-Code
-- `README.md`: Diese Datei. Sie ist in [Markdown](https://git.mylab.th-luebeck.de/help/user/markdown.md) formatiert, und wird auf der Hauptseite des Projektes direkt angezeigt. Im Laufe des Semesters können Sie hier Dokumentation bzw. ein "Getting Started" Ihres Spieles unterbringen.
+- `web/`: In diesem Ordner befindet sich Ihr Dart-, HTML- und CSS-Code. Dies ist der für Sie relevante Ordner.
+- `deploy/`: Hier finden Sie Kubernetes Manifest-Dateien, die für das Deployment erforderlich sind. Inhalte dieses Ordners müssen durch Sie in aller Regel nicht angepasst werden.
+- `README.md`: Diese Datei. Sie ist in [Markdown](https://git.mylab.th-luebeck.de/help/user/markdown.md) formatiert, und wird auf der Hauptseite des Projektes direkt angezeigt. Im Verlaufe Ihres Projekts können Sie hier Dokumentation bzw. ein "Getting Started" Ihres Spieles unterbringen.
 - `pubspec.yaml` und `analysis_options.yaml`: Konfiguration des Dart-Builds bzw. der statischen Code-Analyse.
-- `.gitlab-ci.yml` und `Dockerfile`: Anweisungen an GitLab, wie Ihr Projekt mittels einer Deployment Pipeline gebaut auf deployed werden soll. Der Build-Prozess wird bei jeder Veränderung (Push/Commit) des Projektes angestoßen.
+- `.gitlab-ci.yml` und `Dockerfile`: Anweisungen an GitLab, wie Ihr Projekt mittels einer Deployment Pipeline gebaut auf deployed werden soll. Der Build-Prozess wird bei jeder Veränderung (Push/Commit) des Projektes angestoßen. Diese Dateien müssen durch Sie in aller Regel nicht angepasst werden.
 - `.gitignore`: Hier eingetragene Dateien und Pfade werden von Git, z.B. bei der Ausführung von `git status` oder `git add .`, ignoriert. Sie können diese Datei nach belieben erweitern.
 
-## Forken Sie ein neues Projekt
-
-1. Loggen Sie sich in [GitLab](https://git.mylab.th-luebeck.de) ein (dieselben Access credentials wie Moodle).
-2. Navigieren Sie in einem Browser zu: [https://git.mylab.th-luebeck.de/webtech/barebones](https://git.mylab.th-luebeck.de/webtech/barebones)
-4. Klicken Sie auf __Fork__
-3. Wählen Sie Ihren Namen als Namespace
-
-Es sollte nun unter Ihrem Account ein neues Projekt namens "barebones" angelegt worden sein
-(falls nicht, wenden Sie sich an einen Betreuer).
-
-## Vorbereitung der Build-Pipeline
-
-Im Moodle-Kurs wurden Ihnen Access Credentials hinterlegt, die Sie dazu nutzen können, Ihr Projekt in einem sogenannten [Kubernetes](https://kubernetes.io)-Cluster zu deployen. Dies entspricht mittlerweile einem üblichen DevOps-Vorgehen. Mit den nächsten Schritten dieses Abschnitts, werden Sie hierzu Gitlab mit diesem Cluster über eine für Sie vorbereitete Deployment Pipeline verbinden.
+In diesem Repository wurden ferner Umbegungsvariablen (`Variables`) unter [CI/CD-Settings](../../settings/ci_cd) hinterlegt, die von der Deployment-Pipeline dazu genutzt werden, Ihr Projekt in einen [Kubernetes](https://kubernetes.io)-Cluster zu deployen. Dies entspricht üblichen DevOps-Prinzipien.
 
 ```
         +--------+                                        +-------------+
@@ -45,23 +33,130 @@ SIE --> | GitLab | -Commits-> | Deployment Pipeline | --> | K8s Cluster | <-- WW
         +--------+                                        +-------------+
 ```
 
-1. Laden Sie sich Ihre `kubeconfig` Datei im [Moodle-Kurs](https://lernraum.th-luebeck.de/course/view.php?id=266) herunter.
-2. Erstellen Sie anschließend in Gitlab unter `Einstellungen -> Repository -> Bereitstellungstoken` für das geforkte Repository einen Bereitstellungstoken, um selbstgebaute Container Images deployen zu können.
-    - **Name:** `Registry read access (deployment)`
-    - **Username:** `image-registry` (bitte exakt so!)
-    - **Scope:** `read-registry` (nicht mit read repository verwechseln!)
-    - Klicken Sie anschließend auf Bereitstellungstoken erstellen und kopieren Sie sich dieses geheime Token in die Zwischenablage!
-3. Hinterlegen Sie nun für Gitlab Build-Pipelines dieses geheime Token unter `Einstellungen -> CI/CD -> Variables (Aufklappen) -> ADD VARIABLE` als CI/CD-Variable.
-    - **Key:** `CI_REGISTRY_TOKEN` (exakt so)
-    - **Value:** Fügen Sie hier das geheime Token (Schritt 2) aus der Zwischenablage ein.
-    - **Type:** `Variable` (nichts anderes)
-    - **Flags:** Selektieren Sie `Mask Variable` damit das geheime Token in Log-Dateien maskiert wird.
-4. Hinterlegen Sie in Ihrem geforkten GitLab-Repository nun die `kubeconfig`-Datei als CI-Environment-Variable mittels `Einstellungen -> CI/CI -> Variables (Aufklappen) -> ADD VARIABLE` (setzen Sie hierfür folgende Werte)
-    - **Key:** `KUBECONFIG` (Exakt so eingeben)
-    - **Value:** Inhalt der kubeconfig (z.B. mittels Copy-Paste aus Editor)
-    - **Typ:** `File` (Auswählen, WICHTIG!!!)
+Passen Sie daher bitte weder Umgebungsvariablen noch die Deployment-Pipeline an. Es sei denn, Sie wissen genau was Sie tun!
 
 ## Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
+
+1. Navigieren Sie zu __Repository__ -> __Files__
+2. Klicken Sie auf __WebIDE__
+3. Öffnen Sie die Datei: __web/index.html__
+4. Fügen Sie __hinter__ `<div id="output"></div>` folgenden Inhalt ein:
+    ```HTML
+    <table id="chess">
+        <tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td></tr>
+        <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    ```
+5. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
+6. Warten Sie, bis die Build-Pipeline durchlaufen wurde. Sie können den Buildprozess wie folgt nachverfolgen:
+   - Navigieren Sie unter Ihrem Projekt (evtl. müssen Sie dazu die Web-IDE verlassen) zu __CI/CD__ -> __Pipelines__
+       - Es wird eine Tabelle aller vergangenen, und auch des aktuellen Buildprozesses angezeigt. Das blaue runde Icon in der Spalte "Stages" zeigt an, dass der build läuft. Sobald dieser abgeschlossen ist, wird stattdessen ein grünes Häkchen angezeigt.
+   - Klicken Sie bei dem obersten Eintrag auf das blaue Icon in der Spalte "Stages"
+   - Klicken Sie gerne auf die einzlnen Jobs. Sie sehen dort die Konsolenausgaben der einzelnen Buildjobs (ggf. für Fehlersuchen ganz hilfreich).
+7. Öffnen Sie dann mit einem Browser: 
+   ```
+   https://webapp-[userid]-master.webtech.th-luebeck.dev
+   ```
+   Als `projectid` geben Sie bitte die Projekt Id dieses Projekts an. Diese finden Sie in Gitlab auf der Projekt Einstiegsseite direkt unter dem Projektnamen (`Projekt ID`).
+8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
+
+## Gestalten Sie das Schachbrett mit Hilfe von CSS
+
+1. Öffnen Sie in der __WebIDE__ die Datei: __web/style.css__
+2. Ergänzen Sie die folgenden CSS Regeln
+    ```CSS
+    #chess {
+        border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #chess td {
+        font-size: 40px;
+        width: 60px;
+        height: 60px;
+        color: black;
+        background: lightgrey;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    #chess tr:nth-child(odd) td:nth-child(odd),
+    #chess tr:nth-child(even) td:nth-child(even) {
+        background: darkgray;
+    }
+
+    #chess tr:first-child td, #chess tr td:first-child {
+        background: white !important;
+        text-align: center;
+        font-size: 20px;
+    }
+    ```
+3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
+4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
+5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[projectid]-master.webtech.th-luebeck.dev</pre>
+6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
+
+___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
+etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
+nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
+`Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
+
+## Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
+
+1. Öffnen Sie in der __WebIDE__ die Datei: __web/main.dart__
+2. Ergänzen Sie in der `main()`-Methode folgende Codezeilen.
+    ```Dart
+    // White
+    querySelectorAll('#chess tr:nth-child(3) td:nth-child(n+2)').forEach((td) { td.innerHtml = "&#9817;"; });
+    querySelectorAll('#chess tr:nth-child(2) td:nth-child(2), #chess tr:nth-child(2) td:nth-child(9)').forEach((td) { td.innerHtml = "&#9814;"; });
+    querySelectorAll('#chess tr:nth-child(2) td:nth-child(3), #chess tr:nth-child(2) td:nth-child(8)').forEach((td) { td.innerHtml = "&#9816;"; });
+    querySelectorAll('#chess tr:nth-child(2) td:nth-child(4), #chess tr:nth-child(2) td:nth-child(7)').forEach((td) { td.innerHtml = "&#9815;"; });
+    querySelector('#chess tr:nth-child(2) td:nth-child(6)').innerHtml = "&#9812;";
+    querySelector('#chess tr:nth-child(2) td:nth-child(5)').innerHtml = "&#9813;";
+
+    // Black
+    querySelectorAll('#chess tr:nth-child(8) td:nth-child(n+2)').forEach((td) { td.innerHtml = "&#9823;"; });
+    querySelectorAll('#chess tr:nth-child(9) td:nth-child(2), #chess tr:nth-child(9) td:nth-child(9)').forEach((td) { td.innerHtml = "&#9820;"; });
+    querySelectorAll('#chess tr:nth-child(9) td:nth-child(3), #chess tr:nth-child(9) td:nth-child(8)').forEach((td) { td.innerHtml = "&#9822;"; });
+    querySelectorAll('#chess tr:nth-child(9) td:nth-child(4), #chess tr:nth-child(9) td:nth-child(7)').forEach((td) { td.innerHtml = "&#9821;"; });
+    querySelector('#chess tr:nth-child(9) td:nth-child(5)').innerHtml = "&#9819;";
+    querySelector('#chess tr:nth-child(9) td:nth-child(6)').innerHtml = "&#9818;";
+    ```
+3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
+4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
+5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[projectid]-master.webtech.th-luebeck.dev</pre>
+6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
+
+___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
+etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
+nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
+`Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
+
+Das Resultat sollte in etwa wie [hier](https://webtech.mylab.th-luebeck.de/chessboard) aussehen.
+
+## Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
+
+Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](https://webtech.mylab.th-luebeck.de/chessboard) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
+
+1. `index.html` (Versuchen Sie die Nummerierung der Zeilen anzupassen.)
+2. `style.css` (Versuchen Sie die Farbgebung des Schachbretts anzupassen.)
+3. `main.dart` (Versuchen Sie rauszufinden, welche Zeilen für welche Figuren verantwortlich sind und passen Sie diese an.)
+
+eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht. Wenn Sie damit fertig sind, wenden Sie sich bitte an einen Betreuer und erklären:
+
+1. Welche Änderungen in der `index.html` erforderlich waren und warum?
+2. Welche Änderungen in der `style.css` erforderlich waren und warum?
+3. Welche Änderungen in der `main.dart` erforderlich waren und warum?
+
+Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwick## Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
 
 1. Navigieren Sie zu __Repository__ -> __Files__
 2. Klicken Sie auf __WebIDE__
@@ -182,7 +277,7 @@ eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht. Wenn 
 2. Welche Änderungen in der `style.css` erforderlich waren und warum?
 3. Welche Änderungen in der `main.dart` erforderlich waren und warum?
 
-Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwickelndes Spiel nutzen können ;-)
+Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwickelndes Spiel nutzen können ;-)elndes Spiel nutzen können ;-)
 
 ## Nerd Stuff (optional)
 
@@ -190,13 +285,13 @@ Wer mag, kann einen Einblick in das Deployment auf dem Cluster mittels der Kuber
 
 ![Lens](lens.png)
 
-Starten Sie Lens und fügen Sie der IDE, die Ihnen in Moodle bereitgestellte `kubeconfig`-Datei hinzu, um auf Ihren Cluster zugreifen zu können. Dies ist dieselbe Datei, die Sie auch der Deployment-Pipeline bekannt gemacht haben.
+Starten Sie Lens und fügen Sie der IDE eine erforderliche `kubeconfig`-Datei hinzu, um auf Ihren Cluster zugreifen zu können. Sie finden diese Datei in den [CI/CD Settings](../../settings/ci_cd) unter `Variables` unter dem Schlüssel `KUBECONFIG`. Diese persönlichen Zugangsdaten zum Kubernetes Cluster sind vertraulich, nur für diesen Kurs zu nutzen und durch Sie in keinem Falle weiterzugeben.
 
-1. `Add Cluster (großes +) -> Paste as text`
-2. Kopieren Sie nun den Inhalt der `kubeconfig` hinein.
+1. Kopieren Sie sich in GitLab ([CI/CD Settings](../../settings/ci_cd)) den Inhalt der CI/CD-Variable `KUBECONFIG` in Ihre Zwischenablage (`CTRL-C/CMD-C`).
+2. In Lens: `Add Cluster (großes +) -> Paste as text` Kopieren Sie nun den Inhalt aus der Zwischenablage mittels `CTRL-V/CMD-V`hinein.
 3. Klicken Sie anschließen auf `Add cluster`.
 
-Sie sollten dann Ihren Namespace in dem für Sie bereitgestellten K8s-Cluster sehen.
+Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie bereitgestellten K8s-Cluster sehen.
 
 __Hinweis:__
 
