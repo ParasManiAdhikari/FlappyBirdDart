@@ -47,11 +47,13 @@ container:
 deploy:
   stage: deploy
   script:
+  
   - mo deploy/webapp-dep.yaml | kubectl delete -f - || true
   - mo deploy/webapp-dep.yaml | kubectl apply -f -
   - mo deploy/webapp-svc.yaml | kubectl apply -f -
   - HOST=webapp-$CI_PROJECT_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml
-  - N=$(($CI_PROJECT_ID % 10)) HOST=webapp-$CI_PROJECT_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml | kubectl apply -f -
+  - HOST=webapp-$CI_PROJECT_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-cert.yaml | kubectl apply -f -
+  - HOST=webapp-$CI_PROJECT_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml | kubectl apply -f -
 
 terminate:
   stage: destroy
