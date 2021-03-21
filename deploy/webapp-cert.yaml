@@ -4,11 +4,9 @@ metadata:
   name: {{ CI_COMMIT_REF_NAME }}-ing-cert
 spec:
   secretName: {{ CI_COMMIT_REF_NAME }}-ing-cert-tls
-  commonName: {{ HOST }}
-  dnsNames:
-    - {{ HOST }}
-  duration: 30d
-  renewBefore: 7d
+  dnsNames: [{{ HOST }}]
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
   issuerRef:
     group: cas-issuer.jetstack.io
     kind: GoogleCASClusterIssuer
