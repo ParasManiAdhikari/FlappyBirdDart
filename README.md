@@ -47,9 +47,13 @@ Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist siche
 In diesem Repository wurden ferner Umbegungsvariablen (`Variables`) unter [CI/CD-Settings](../../settings/ci_cd) hinterlegt, die von der Deployment-Pipeline dazu genutzt werden, Ihr Projekt in einen [Kubernetes](https://kubernetes.io)-Cluster zu deployen. Dies entspricht üblichen DevOps-Prinzipien.
 
 ```
-        +--------+                                        +-------------+
-SIE --> | GitLab | -Commits-> | Deployment Pipeline | --> | K8s Cluster | <-- WWW
-        +--------+                                        +-------------+
+        +----------+                                        
+    +-> |  GitLab  | -Commits-+ 
+    |   +----------+          |                               +-------------+
+SIE-+                         +-> | Deployment Pipeline | --> | K8s Cluster | <-- WWW
+    |   +----------+          |                               +-------------+
+    +-> | lok. IDE | -Commits-+
+        +----------+
 ```
 
 Passen Sie daher bitte weder Umgebungsvariablen noch die Deployment-Pipeline an. Es sei denn, Sie wissen genau was Sie tun!
@@ -97,7 +101,7 @@ Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie b
        - Es wird eine Tabelle aller vergangenen, und auch des aktuellen Buildprozesses angezeigt. Das blaue runde Icon in der Spalte "Stages" zeigt an, dass der build läuft. Sobald dieser abgeschlossen ist, wird stattdessen ein grünes Häkchen angezeigt.
    - Klicken Sie bei dem obersten Eintrag auf das blaue Icon in der Spalte "Stages"
    - Klicken Sie gerne auf die einzlnen Jobs. Sie sehen dort die Konsolenausgaben der einzelnen Buildjobs (ggf. für Fehlersuchen ganz hilfreich).
-7. Öffen Sie dann **Lens** und geben dort im Terminal folgendes ein: 
+7. Öffen Sie dann auf Ihrem Rechner **Lens** und geben dort im Terminal folgendes ein: 
    ```Bash
    kubectl port-forward svc/master-webapp-svc 8888:80
    ```
@@ -144,7 +148,7 @@ Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie b
     ```
 3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
+5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding im Lens Terminal mittels `Ctrl-C` und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
    ```Bash
    kubectl port-forward svc/master-webapp-svc 8888:80
    ```
