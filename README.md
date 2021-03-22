@@ -1,29 +1,31 @@
 # 1. Bare-bones webapp
 
-Benutzen Sie dieses Projekt als Ausgangspunkt für die erste Aufgabe. Es ist so konfiguriert, dass Sie einfache
+Benutzen Sie dieses Projekt bitte als Ausgangspunkt für Ihre erste Aufgabe. Es ist so konfiguriert, dass Sie einfache
 
 - Dart 2 Web-Projekte
 
-mit einer Build-Pipeline deployen können. Das Repository für Ihr Projekt wird analog aufgebaut sein.
+mit einer Build-Pipeline deployen können. Das Repository für Ihr Projekt wird analog aufgebaut sein und Ihnen für Ihr Team bereitgestellt werden.
 
 In den folgenden Schritten lernen Sie:
 
 - Wie Sie mit einem GitLab Projekt umgehen.
-- Wie Sie die WebIDE von GitLab für einfache Änderungen nutzen können.
+- Wie Sie die Web-IDE von GitLab für einfache Änderungen nutzen können.
 - Wie Sie mit CSS Regeln HTML-Dokumente gestalten können.
 - Wie Sie mit Dart den DOM-Tree manipulieren können.
 - Wie Sie GitLab CI dazu nutzen können, ein Projekt automatisiert zu bauen und in Kubernetes zu deployen.
+- Wie Sie lokal Änderungen vornehmen und testen zu können.
+- Wie Sie lokale Änderungen mittels VSCode + Git committen und an Gitlab Pushen können, um die Build-Pipeline auch von Ihrem lokalen Rechner aus anstoßen zu können.
 
 Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist sicher noch sehr weit von dem zu entwickelnden Spiel entfernt, aber diese Basis-Kenntnisse sollen Ihnen helfen, schnell Ihren persönlichen Einstieg in Ihr Spielprojekt zu finden.
 
-## Inhalt
+## 1.1. Inhalt
 
 - [1. Bare-bones webapp](#1-bare-bones-webapp)
-  - [Inhalt](#inhalt)
-  - [1.1. Aufbau des Projektes](#11-aufbau-des-projektes)
-  - [1.2. Installation von Lens](#12-installation-von-lens)
-- [Aufgaben](#aufgaben)
-  - [2.1. Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an](#21-starten-sie-die-webide-und-legen-sie-die-struktur-eines-schachbretts-mit-hilfe-von-html-an)
+  - [1.1. Inhalt](#11-inhalt)
+  - [1.2. Aufbau des Projektes](#12-aufbau-des-projektes)
+  - [1.3. Installation von Lens](#13-installation-von-lens)
+- [2. Aufgaben](#2-aufgaben)
+  - [2.1. Starten Sie die Web-IDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an](#21-starten-sie-die-web-ide-und-legen-sie-die-struktur-eines-schachbretts-mit-hilfe-von-html-an)
   - [2.2. Gestalten Sie das Schachbrett mit Hilfe von CSS](#22-gestalten-sie-das-schachbrett-mit-hilfe-von-css)
   - [2.3. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart](#23-platzieren-sie-schachfiguren-auf-dem-schachbrett-im-dom-tree-mit-hilfe-von-dart)
   - [2.4. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße](#24-stellen-sie-ihr-schachbrett-noch-vom-kopf-auf-die-füße)
@@ -31,9 +33,9 @@ Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist siche
   - [2.6. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart](#26-platzieren-sie-schachfiguren-auf-dem-schachbrett-im-dom-tree-mit-hilfe-von-dart)
   - [2.7. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße](#27-stellen-sie-ihr-schachbrett-noch-vom-kopf-auf-die-füße)
   - [2.8. Arbeiten Sie lokal](#28-arbeiten-sie-lokal)
-- [Schlussbemerkung](#schlussbemerkung)
+- [3. Schlussbemerkung](#3-schlussbemerkung)
 
-## 1.1. Aufbau des Projektes
+## 1.2. Aufbau des Projektes
 
 - `web/`: In diesem Ordner befindet sich Ihr Dart-, HTML- und CSS-Code. **Dies ist der für Sie primär relevante Ordner.**
 - `deploy/`: Hier finden Sie Kubernetes Manifest-Dateien, die für das Deployment erforderlich sind. Inhalte dieses Ordners müssen durch Sie in aller Regel nicht angepasst werden.
@@ -52,7 +54,7 @@ SIE --> | GitLab | -Commits-> | Deployment Pipeline | --> | K8s Cluster | <-- WW
 
 Passen Sie daher bitte weder Umgebungsvariablen noch die Deployment-Pipeline an. Es sei denn, Sie wissen genau was Sie tun!
 
-## 1.2. Installation von Lens
+## 1.3. Installation von Lens
 
 Um einen Einblick in das Deployment auf dem Cluster nehmen zu können, installieren Sie hierzu bitte lokal auf Ihrem Rechner die Kubernetes-IDE [Lens](https://k8slens.dev/).
 
@@ -68,12 +70,12 @@ Starten Sie Lens und fügen Sie der IDE eine erforderliche `kubeconfig`-Datei hi
 
 Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie bereitgestellten K8s-Cluster sehen. In diesen Namespace deployed die Pipeline Ihre Applikation.
 
-# Aufgaben
+# 2. Aufgaben
 
-## 2.1. Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
+## 2.1. Starten Sie die Web-IDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
 
 1. Navigieren Sie zu __Repository__ -> __Files__
-2. Klicken Sie auf __WebIDE__
+2. Klicken Sie auf __Web-IDE__
 3. Öffnen Sie die Datei: __web/index.html__
 4. Fügen Sie __hinter__ `<div id="output"></div>` folgenden Inhalt ein:
     ```HTML
@@ -95,16 +97,22 @@ Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie b
        - Es wird eine Tabelle aller vergangenen, und auch des aktuellen Buildprozesses angezeigt. Das blaue runde Icon in der Spalte "Stages" zeigt an, dass der build läuft. Sobald dieser abgeschlossen ist, wird stattdessen ein grünes Häkchen angezeigt.
    - Klicken Sie bei dem obersten Eintrag auf das blaue Icon in der Spalte "Stages"
    - Klicken Sie gerne auf die einzlnen Jobs. Sie sehen dort die Konsolenausgaben der einzelnen Buildjobs (ggf. für Fehlersuchen ganz hilfreich).
-7. Öffnen Sie dann mit einem Browser: 
+7. Öffen Sie dann **Lens** und geben dort im Terminal folgendes ein: 
+   ```Bash
+   kubectl port-forward svc/master-webapp-svc 8888:80
    ```
-   https://webapp-[userid]-master.webtech.th-luebeck.dev
-   ```
-   Als `projectid` geben Sie bitte die Projekt Id dieses Projekts an. Diese finden Sie in Gitlab auf der Projekt Einstiegsseite direkt unter dem Projektnamen (`Projekt ID`).
+   Damit leiten Sie Ihr Webprojekt auf den lokalen Port 8888 auf Ihren Rechner um. Probieren Sie es aus. Unter [http://localhost:8888](http://localhost:8888) sollten Sie das Resultat sehen.
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
+
+> **Hinweis 1:**
+> Wir werden Ihnen noch zeigen, wie Sie Ihre Web-Applikation auch mittels einer `Ingress`-Ressource Cluster-extern im weltweiten Netz exponieren können. Hierfür benötigen wir allerdings HTTPS-Zertifikate. Da wir diese automatisiert mittels [Letsencrypt](https://letsencrypt.org/de/) erzeugen und dort ein Limit von 50 Zertifikatausstellungen pro Woche und Domain besteht, werden wir dies erst machen, wenn Sie Ihre Spiele in den Teams bereitstellen müssen. Dann liegen wir sicher unterhalb der Letsencrypt Quotas. Bis dahin werden wir uns mit Port-Forwarding begnügen.
+
+> **Hinweis 2:**
+> Das Port Forwarding können Sie im Terminal mittels `Ctrl-C` beenden. Wenn Sie eines neues Deployment über die Pipeline triggern, müssen Sie anschließend auch das Port-Forwarding beenden, da dieses ansonsten im Nirwana (d.h. dem letzten dann ersetzten und nicht mehr existenten Deployment) endet.
 
 ## 2.2. Gestalten Sie das Schachbrett mit Hilfe von CSS
 
-1. Öffnen Sie in der __WebIDE__ die Datei: __web/style.css__
+1. Öffnen Sie in der __Web-IDE__ die Datei: __web/style.css__
 2. Ergänzen Sie die folgenden CSS Regeln
     ```CSS
     #chess {
@@ -136,7 +144,10 @@ Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie b
     ```
 3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[projectid]-master.webtech.th-luebeck.dev</pre>
+5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
+   ```Bash
+   kubectl port-forward svc/master-webapp-svc 8888:80
+   ```
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
@@ -146,7 +157,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
 
 ## 2.3. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
 
-1. Öffnen Sie in der __WebIDE__ die Datei: __web/main.dart__
+1. Öffnen Sie in der __Web-IDE__ die Datei: __web/main.dart__
 2. Ergänzen Sie in der `main()`-Methode folgende Codezeilen.
     ```Dart
     // White
@@ -167,7 +178,10 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
     ```
 3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[projectid]-master.webtech.th-luebeck.dev</pre>
+5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
+   ```Bash
+   kubectl port-forward svc/master-webapp-svc 8888:80
+   ```
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
@@ -194,7 +208,7 @@ eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht. Wenn 
 Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwick## Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
 
 1. Navigieren Sie zu __Repository__ -> __Files__
-2. Klicken Sie auf __WebIDE__
+2. Klicken Sie auf __Web-IDE__
 3. Öffnen Sie die Datei: __web/index.html__
 4. Fügen Sie __hinter__ `<div id="output"></div>` folgenden Inhalt ein:
     ```HTML
@@ -216,16 +230,15 @@ Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich 
        - Es wird eine Tabelle aller vergangenen, und auch des aktuellen Buildprozesses angezeigt. Das blaue runde Icon in der Spalte "Stages" zeigt an, dass der build läuft. Sobald dieser abgeschlossen ist, wird stattdessen ein grünes Häkchen angezeigt.
    - Klicken Sie bei dem obersten Eintrag auf das blaue Icon in der Spalte "Stages"
    - Klicken Sie gerne auf die einzlnen Jobs. Sie sehen dort die Konsolenausgaben der einzelnen Buildjobs (ggf. für Fehlersuchen ganz hilfreich).
-7. Öffnen Sie dann mit einem Browser: 
+7. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
+   ```Bash
+   kubectl port-forward svc/master-webapp-svc 8888:80
    ```
-   https://webapp-[projectid]-master.webtech.th-luebeck.dev
-   ```
-   Als `projectid` geben Sie bitte die Gitlab Project Id Ihres Repositories an. Diese finden Sie auf der Einstiegsseite Ihres Projekts direkt unter dem Namen `Projekt ID`.
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ## 2.5. Gestalten Sie das Schachbrett mit Hilfe von CSS
 
-1. Öffnen Sie in der __WebIDE__ die Datei: __web/style.css__
+1. Öffnen Sie in der __Web-IDE__ die Datei: __web/style.css__
 2. Ergänzen Sie die folgenden CSS Regeln
     ```CSS
     #chess {
@@ -257,7 +270,10 @@ Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich 
     ```
 3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[projectid]-master.webtech.th-luebeck.dev</pre>
+5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
+   ```Bash
+   kubectl port-forward svc/master-webapp-svc 8888:80
+   ```
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
@@ -267,7 +283,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
 
 ## 2.6. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
 
-1. Öffnen Sie in der __WebIDE__ die Datei: __web/main.dart__
+1. Öffnen Sie in der __Web-IDE__ die Datei: __web/main.dart__
 2. Ergänzen Sie in der `main()`-Methode folgende Codezeilen.
     ```Dart
     // White
@@ -288,7 +304,10 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
     ```
 3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
 4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffnen Sie dann mit einem Browser: <pre>https://webapp-[projectid]-master.webtech.th-luebeck.dev</pre>
+5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
+   ```Bash
+   kubectl port-forward svc/master-webapp-svc 8888:80
+   ```
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
 ___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
@@ -316,19 +335,20 @@ Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich 
 
 ## 2.8. Arbeiten Sie lokal
 
-Sie haben gemerkt, dass die Build-Pipeline immer recht viel Zeit in Anspruch nimmt. Es ist daher für tägliche Projektarbeit sinnvoll lokal auf Ihrem eigenen Rechner arbeiten zu können und einzelne Anpassungen vornehmen zu können und diese direkt lokal austesten zu können. Erst wenn Ihre Änderungen lokal funktionieren, sollten Sie dann in das Repository pushen und so die oben gezeigte Build-Pipeline anstoßen.
+Sie haben gemerkt, dass die Build-Pipeline immer recht viel Zeit in Anspruch nimmt. Es ist daher für die tägliche Projektarbeit sinnvoll, lokal auf Ihrem eigenen Rechner arbeiten zu können und einzelne Anpassungen vornehmen zu können und diese direkt lokal austesten zu können. Erst wenn Ihre Änderungen lokal funktionieren, sollten Sie dann in das Repository pushen und so die oben gezeigte Build-Pipeline anstoßen.
 
 Für Ihr Webtech Projekt wird grundsätzlich folgendes Setting empfohlen.
 
 - Installieren Sie [git](https://git-scm.com/downloads)
-- Installieren Sie die IDE [Visual Studio Code](https://code.visualstudio.com)
 - Installieren Sie das [Dart SDK](https://dart.dev/get-dart)
+- Installieren Sie die IDE [Visual Studio Code](https://code.visualstudio.com) inkl. der [Dart Extension](https://flutter.dev/docs/get-started/editor?tab=vscode)
+- Installieren Sie [Lens](https://k8slens.dev) (für diesen Schritt nicht erforderlich)
 
 Lokales Arbeiten:
 
 1. Klonen Sie dann [Ihr Repository](./) in der [Gitlab Web-UI](./) unter `Klonen -> Open in your IDE (Visual Studio Code)`. Es öffnet sich dann VSCode und fragt, ob Sie dieses Repository klonen und lokal bei sich speichern wollen. Bejahen Sie dies.
 2. Öffnen Sie dann in VSCode eine Shell mittels `Terminal -> Neues Terminal`.
-3. Geben Sie in diesem Terminal folgendes ein: 
+3. Geben Sie in diesem Terminal folgendes ein:
    ```Bash
    > dart pub global activate webdev
    > pub get
@@ -337,10 +357,10 @@ Lokales Arbeiten:
 4. Dies startet einen Build Daemon (genau derselbe wie in der Build-Pipeline). Dieser überwacht das Verzeichnis und alle in diesem Verzeichnis befindlichen Dateien und startet unter [http://127.0.0.1:8080](http://127.0.0.1:8080) einen Webserver unter dem Ihre Webapp lokal abgerufen und getestet werden kann. Öffnen Sie die URL mit Ihrem Browser, um es auszuprobieren.
 5. Probieren Sie es aus. Fügen Sie bspw. der `index.html` Datei folgende Überschrift hinzu `<h1>Local Test</h1>` und speichern Sie die Datei. Beobachten Sie das Terminal. Die Änderung wird erkannt, eine Rekompilierung angestoßen. Anschließend können Sie unter [http://127.0.0.1:8080](http://127.0.0.1:8080) die Änderung lokal sehen.
 6. Klicken Sie in VSCode nun auf den GIT-Reiter (Quellcode-Verwaltung). Dort finden Sie unter `Änderungen` alle Änderungen, die Sie zum Stand gemacht haben, den Sie im Schritt 1 herunter geladen haben.
-7. Übernehmen Sie nun mittels `+` alle Änderungen als `gestagte Änderungen`. Damit merken Sie diese für einen Commit in GIT vor.
+7. Übernehmen Sie nun mittels `+` alle Änderungen als `gestagte Änderungen`. Damit merken Sie diese für einen Commit in GIT vor. Geben Sie nun eine Commit-Nachricht ein, z.B. `Mein erster Commit`. Klicken Sie auf das "Häkchen". Dies committed alle Änderung in die lokale Version ihres Repositories.
+8. Um diese lokalen Änderungen auch an den Gitlab Server zu übertragen, müssen sie diese "pushen". Klicken Sie hierzu in VSCode in der unteren Statusleiste neben `master` auf das Synchronisationsfeld. Dort sollten 0 Commits zum Pull und 1 Commits zum Push stehen. Durch Klicken der Synchronisationsfeldes können Sie diese Änderungen nun an das zentrale Repository übertragen. Dieser Vorgang stößt die Build-Pipeline an und Sie können Ihre lokalen Änderungen zentral im Kubernetes Cluster bereitstellen.
+9. Vollziehen Sie gerne in Lens und in der [CI/CD Pipeline](-/pipelines) nach, dass Ihre Änderung erfolgreich gepushed wurde und die Build-Pipeline anläuft.
 
-  
-
-# Schlussbemerkung
+# 3. Schlussbemerkung
 
 Gegenstand des Moduls Webtechnologie-Projekt sind Webtechnologien und nicht GitLab, Deployment Pipelines und Kubernetes. Diese Technologien werden zur Automatisierung von Deployments und einen angenehmeren Workflow genutzt, müssen durch Sie aber in aller Regel nicht angepasst werden. Wer dazu mehr hören möchte, sei auf die Mastermodule *Cloud-native Programmierung* und *Cloud-native Architekturen* des Masterstudiengangs *Informatik/Verteilte Systeme* verwiesen ;-)
