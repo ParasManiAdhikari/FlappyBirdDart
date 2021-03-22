@@ -5,6 +5,7 @@ image: "transit/kubectl-plus:v1.19.4"
 
 variables:
   DOMAIN: "webtech.th-luebeck.dev"
+  INGRESS: "False"
 
 stages:
 - prepare
@@ -22,7 +23,7 @@ registry-cred:
               --docker-username=image-registry \ 
               --docker-password=$CI_REGISTRY_TOKEN"
 
-webapp:
+source:
   image: google/dart:2.12
   stage: compile
   script:
@@ -44,21 +45,25 @@ container:
   - ls -lah build/
   - /kaniko/executor --context . --destination $CI_REGISTRY_IMAGE/webapp-$CI_COMMIT_REF_NAME:latest
 
-deploy:
+webapp:
   stage: deploy
   script:
-  
   - mo deploy/webapp-dep.yaml | kubectl delete -f - || true
   - mo deploy/webapp-dep.yaml | kubectl apply -f -
   - mo deploy/webapp-svc.yaml | kubectl apply -f -
-  - HOST=webapp-$CI_PROJECT_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml
-  - HOST=webapp-$CI_PROJECT_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-cert.yaml | kubectl apply -f -
-  - HOST=webapp-$CI_PROJECT_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml | kubectl apply -f -
+
+ingress:
+  stage: deploy
+  only:
+    variables:
+      - $INGRESS == "True"
+  script:
+  - HOST=webapp-$CI_PROJECT_ID.$DOMAIN mo deploy/webapp-ing.yaml | kubectl apply -f -
 
 terminate:
   stage: destroy
   when: manual
   script:
   - mo deploy/webapp-dep.yaml | kubectl delete -f - || true
-  - mo deploy/webapp-svc.yaml | kubectl delete -f -
-  - HOST=webapp-$GITLAB_USER_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml | kubectl delete -f -
+  - mo deploy/webapp-svc.yaml | kubectl delete -f - || true
+  - HOST=webapp-$GITLAB_USER_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml | kubectl delete -f - || true

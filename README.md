@@ -1,4 +1,4 @@
-# A bare-bones web app
+# 1. Bare-bones webapp
 
 Benutzen Sie dieses Projekt als Ausgangspunkt für die erste Aufgabe. Es ist so konfiguriert, dass Sie einfache
 
@@ -16,9 +16,26 @@ In den folgenden Schritten lernen Sie:
 
 Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist sicher noch sehr weit von dem zu entwickelnden Spiel entfernt, aber diese Basis-Kenntnisse sollen Ihnen helfen, schnell Ihren persönlichen Einstieg in Ihr Spielprojekt zu finden.
 
-## Aufbau des Projektes
+## Inhalt
 
-- `web/`: In diesem Ordner befindet sich Ihr Dart-, HTML- und CSS-Code. Dies ist der für Sie relevante Ordner.
+- [1. Bare-bones webapp](#1-bare-bones-webapp)
+  - [Inhalt](#inhalt)
+  - [1.1. Aufbau des Projektes](#11-aufbau-des-projektes)
+  - [1.2. Installation von Lens](#12-installation-von-lens)
+- [Aufgaben](#aufgaben)
+  - [2.1. Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an](#21-starten-sie-die-webide-und-legen-sie-die-struktur-eines-schachbretts-mit-hilfe-von-html-an)
+  - [2.2. Gestalten Sie das Schachbrett mit Hilfe von CSS](#22-gestalten-sie-das-schachbrett-mit-hilfe-von-css)
+  - [2.3. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart](#23-platzieren-sie-schachfiguren-auf-dem-schachbrett-im-dom-tree-mit-hilfe-von-dart)
+  - [2.4. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße](#24-stellen-sie-ihr-schachbrett-noch-vom-kopf-auf-die-füße)
+  - [2.5. Gestalten Sie das Schachbrett mit Hilfe von CSS](#25-gestalten-sie-das-schachbrett-mit-hilfe-von-css)
+  - [2.6. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart](#26-platzieren-sie-schachfiguren-auf-dem-schachbrett-im-dom-tree-mit-hilfe-von-dart)
+  - [2.7. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße](#27-stellen-sie-ihr-schachbrett-noch-vom-kopf-auf-die-füße)
+  - [2.8. Arbeiten Sie lokal](#28-arbeiten-sie-lokal)
+- [Schlussbemerkung](#schlussbemerkung)
+
+## 1.1. Aufbau des Projektes
+
+- `web/`: In diesem Ordner befindet sich Ihr Dart-, HTML- und CSS-Code. **Dies ist der für Sie primär relevante Ordner.**
 - `deploy/`: Hier finden Sie Kubernetes Manifest-Dateien, die für das Deployment erforderlich sind. Inhalte dieses Ordners müssen durch Sie in aller Regel nicht angepasst werden.
 - `README.md`: Diese Datei. Sie ist in [Markdown](https://git.mylab.th-luebeck.de/help/user/markdown.md) formatiert, und wird auf der Hauptseite des Projektes direkt angezeigt. Im Verlaufe Ihres Projekts können Sie hier Dokumentation bzw. ein "Getting Started" Ihres Spieles unterbringen.
 - `pubspec.yaml` und `analysis_options.yaml`: Konfiguration des Dart-Builds bzw. der statischen Code-Analyse.
@@ -35,7 +52,25 @@ SIE --> | GitLab | -Commits-> | Deployment Pipeline | --> | K8s Cluster | <-- WW
 
 Passen Sie daher bitte weder Umgebungsvariablen noch die Deployment-Pipeline an. Es sei denn, Sie wissen genau was Sie tun!
 
-## Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
+## 1.2. Installation von Lens
+
+Um einen Einblick in das Deployment auf dem Cluster nehmen zu können, installieren Sie hierzu bitte lokal auf Ihrem Rechner die Kubernetes-IDE [Lens](https://k8slens.dev/).
+
+![Lens](lens.png)
+
+Starten Sie Lens und fügen Sie der IDE eine erforderliche `kubeconfig`-Datei hinzu, um auf Ihren Cluster zugreifen zu können. Sie finden diese Datei in den [CI/CD Settings](../../settings/ci_cd) dieses Repositories unter `Variables` unter dem Schlüssel `KUBECONFIG`. 
+
+**Diese persönlichen Zugangsdaten zum Kubernetes Cluster sind vertraulich, nur für diesen Kurs zu nutzen und durch Sie in keinem Falle weiterzugeben.**
+
+1. Kopieren Sie sich in GitLab ([CI/CD Settings](../../settings/ci_cd)) den Inhalt der CI/CD-Variable `KUBECONFIG` in Ihre Zwischenablage (`CTRL-C/CMD-C`).
+2. Starten Sie Lens: `Add Cluster (großes +) -> Paste as text` Kopieren Sie nun den Inhalt aus der Zwischenablage mittels `CTRL-V/CMD-V`hinein.
+3. Klicken Sie anschließen auf `Add cluster`.
+
+Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie bereitgestellten K8s-Cluster sehen. In diesen Namespace deployed die Pipeline Ihre Applikation.
+
+# Aufgaben
+
+## 2.1. Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
 
 1. Navigieren Sie zu __Repository__ -> __Files__
 2. Klicken Sie auf __WebIDE__
@@ -67,7 +102,7 @@ Passen Sie daher bitte weder Umgebungsvariablen noch die Deployment-Pipeline an.
    Als `projectid` geben Sie bitte die Projekt Id dieses Projekts an. Diese finden Sie in Gitlab auf der Projekt Einstiegsseite direkt unter dem Projektnamen (`Projekt ID`).
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
-## Gestalten Sie das Schachbrett mit Hilfe von CSS
+## 2.2. Gestalten Sie das Schachbrett mit Hilfe von CSS
 
 1. Öffnen Sie in der __WebIDE__ die Datei: __web/style.css__
 2. Ergänzen Sie die folgenden CSS Regeln
@@ -109,7 +144,7 @@ etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere 
 nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
 `Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
 
-## Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
+## 2.3. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
 
 1. Öffnen Sie in der __WebIDE__ die Datei: __web/main.dart__
 2. Ergänzen Sie in der `main()`-Methode folgende Codezeilen.
@@ -142,7 +177,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
 
 Das Resultat sollte in etwa wie [hier](https://webtech.mylab.th-luebeck.de/chessboard) aussehen.
 
-## Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
+## 2.4. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
 
 Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](https://webtech.mylab.th-luebeck.de/chessboard) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
 
@@ -188,7 +223,7 @@ Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich 
    Als `projectid` geben Sie bitte die Gitlab Project Id Ihres Repositories an. Diese finden Sie auf der Einstiegsseite Ihres Projekts direkt unter dem Namen `Projekt ID`.
 8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
-## Gestalten Sie das Schachbrett mit Hilfe von CSS
+## 2.5. Gestalten Sie das Schachbrett mit Hilfe von CSS
 
 1. Öffnen Sie in der __WebIDE__ die Datei: __web/style.css__
 2. Ergänzen Sie die folgenden CSS Regeln
@@ -230,7 +265,7 @@ etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere 
 nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
 `Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
 
-## Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
+## 2.6. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
 
 1. Öffnen Sie in der __WebIDE__ die Datei: __web/main.dart__
 2. Ergänzen Sie in der `main()`-Methode folgende Codezeilen.
@@ -263,7 +298,7 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
 
 Das Resultat sollte in etwa wie [hier](https://webtech.mylab.th-luebeck.de/chessboard) aussehen.
 
-## Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
+## 2.7. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
 
 Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](https://webtech.mylab.th-luebeck.de/chessboard) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
 
@@ -277,22 +312,35 @@ eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht. Wenn 
 2. Welche Änderungen in der `style.css` erforderlich waren und warum?
 3. Welche Änderungen in der `main.dart` erforderlich waren und warum?
 
-Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwickelndes Spiel nutzen können ;-)elndes Spiel nutzen können ;-)
+Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwickelndes Spiel nutzen können ;-)
 
-## Nerd Stuff (optional)
+## 2.8. Arbeiten Sie lokal
 
-Wer mag, kann einen Einblick in das Deployment auf dem Cluster mittels der Kubernetes-IDE Lens nehmen. Installieren Sie hierzu bitte lokal auf Ihrem Rechner die Kubernetes-IDE [Lens](https://k8slens.dev/).
+Sie haben gemerkt, dass die Build-Pipeline immer recht viel Zeit in Anspruch nimmt. Es ist daher für tägliche Projektarbeit sinnvoll lokal auf Ihrem eigenen Rechner arbeiten zu können und einzelne Anpassungen vornehmen zu können und diese direkt lokal austesten zu können. Erst wenn Ihre Änderungen lokal funktionieren, sollten Sie dann in das Repository pushen und so die oben gezeigte Build-Pipeline anstoßen.
 
-![Lens](lens.png)
+Für Ihr Webtech Projekt wird grundsätzlich folgendes Setting empfohlen.
 
-Starten Sie Lens und fügen Sie der IDE eine erforderliche `kubeconfig`-Datei hinzu, um auf Ihren Cluster zugreifen zu können. Sie finden diese Datei in den [CI/CD Settings](../../settings/ci_cd) unter `Variables` unter dem Schlüssel `KUBECONFIG`. Diese persönlichen Zugangsdaten zum Kubernetes Cluster sind vertraulich, nur für diesen Kurs zu nutzen und durch Sie in keinem Falle weiterzugeben.
+- Installieren Sie [git](https://git-scm.com/downloads)
+- Installieren Sie die IDE [Visual Studio Code](https://code.visualstudio.com)
+- Installieren Sie das [Dart SDK](https://dart.dev/get-dart)
 
-1. Kopieren Sie sich in GitLab ([CI/CD Settings](../../settings/ci_cd)) den Inhalt der CI/CD-Variable `KUBECONFIG` in Ihre Zwischenablage (`CTRL-C/CMD-C`).
-2. In Lens: `Add Cluster (großes +) -> Paste as text` Kopieren Sie nun den Inhalt aus der Zwischenablage mittels `CTRL-V/CMD-V`hinein.
-3. Klicken Sie anschließen auf `Add cluster`.
+Lokales Arbeiten:
 
-Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie bereitgestellten K8s-Cluster sehen.
+1. Klonen Sie dann [Ihr Repository](./) in der [Gitlab Web-UI](./) unter `Klonen -> Open in your IDE (Visual Studio Code)`. Es öffnet sich dann VSCode und fragt, ob Sie dieses Repository klonen und lokal bei sich speichern wollen. Bejahen Sie dies.
+2. Öffnen Sie dann in VSCode eine Shell mittels `Terminal -> Neues Terminal`.
+3. Geben Sie in diesem Terminal folgendes ein: 
+   ```Bash
+   > dart pub global activate webdev
+   > pub get
+   > webdev serve
+   ```
+4. Dies startet einen Build Daemon (genau derselbe wie in der Build-Pipeline). Dieser überwacht das Verzeichnis und alle in diesem Verzeichnis befindlichen Dateien und startet unter [http://127.0.0.1:8080](http://127.0.0.1:8080) einen Webserver unter dem Ihre Webapp lokal abgerufen und getestet werden kann. Öffnen Sie die URL mit Ihrem Browser, um es auszuprobieren.
+5. Probieren Sie es aus. Fügen Sie bspw. der `index.html` Datei folgende Überschrift hinzu `<h1>Local Test</h1>` und speichern Sie die Datei. Beobachten Sie das Terminal. Die Änderung wird erkannt, eine Rekompilierung angestoßen. Anschließend können Sie unter [http://127.0.0.1:8080](http://127.0.0.1:8080) die Änderung lokal sehen.
+6. Klicken Sie in VSCode nun auf den GIT-Reiter (Quellcode-Verwaltung). Dort finden Sie unter `Änderungen` alle Änderungen, die Sie zum Stand gemacht haben, den Sie im Schritt 1 herunter geladen haben.
+7. Übernehmen Sie nun mittels `+` alle Änderungen als `gestagte Änderungen`. Damit merken Sie diese für einen Commit in GIT vor.
 
-__Hinweis:__
+  
+
+# Schlussbemerkung
 
 Gegenstand des Moduls Webtechnologie-Projekt sind Webtechnologien und nicht GitLab, Deployment Pipelines und Kubernetes. Diese Technologien werden zur Automatisierung von Deployments und einen angenehmeren Workflow genutzt, müssen durch Sie aber in aller Regel nicht angepasst werden. Wer dazu mehr hören möchte, sei auf die Mastermodule *Cloud-native Programmierung* und *Cloud-native Architekturen* des Masterstudiengangs *Informatik/Verteilte Systeme* verwiesen ;-)

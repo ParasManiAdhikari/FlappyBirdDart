@@ -1,19 +1,42 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: webapp-{{ CI_COMMIT_REF_NAME }}-ingress
+  name: webapp-ingress
 spec:
   rules:
-  - host: "{{ HOST }}"
+  - host: "master-{{ HOST }}"
     http:
       paths:
       - path: "/"
         pathType: Prefix
         backend:
           service:
-            name: {{ CI_COMMIT_REF_NAME }}-webapp-svc
+            name: master-webapp-svc
+            port:
+              number: 80
+  - host: "staging-{{ HOST }}"
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: staging-webapp-svc
+            port:
+              number: 80  
+  - host: "working-{{ HOST }}"
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: working-webapp-svc
             port:
               number: 80
   tls:
-  - secretName: {{ CI_COMMIT_REF_NAME }}-ing-cert
-    hosts: ["{{ HOST }}"]
+  - secretName: webapp-ing-cert
+    hosts: 
+    - "master-{{ HOST }}"
+    - "staging-{{ HOST }}"
+    - "working-{{ HOST }}"
