@@ -28,11 +28,8 @@ Am Ende sollten Sie ein Schachbrett gestaltet und aufgebaut haben. Das ist siche
   - [2.1. Starten Sie die Web-IDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an](#21-starten-sie-die-web-ide-und-legen-sie-die-struktur-eines-schachbretts-mit-hilfe-von-html-an)
   - [2.2. Gestalten Sie das Schachbrett mit Hilfe von CSS](#22-gestalten-sie-das-schachbrett-mit-hilfe-von-css)
   - [2.3. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart](#23-platzieren-sie-schachfiguren-auf-dem-schachbrett-im-dom-tree-mit-hilfe-von-dart)
-  - [2.4. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße](#24-stellen-sie-ihr-schachbrett-noch-vom-kopf-auf-die-füße)
-  - [2.5. Gestalten Sie das Schachbrett mit Hilfe von CSS](#25-gestalten-sie-das-schachbrett-mit-hilfe-von-css)
-  - [2.6. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart](#26-platzieren-sie-schachfiguren-auf-dem-schachbrett-im-dom-tree-mit-hilfe-von-dart)
-  - [2.7. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße](#27-stellen-sie-ihr-schachbrett-noch-vom-kopf-auf-die-füße)
-  - [2.8. Arbeiten Sie lokal](#28-arbeiten-sie-lokal)
+  - [2.4. Arbeiten Sie lokal](#24-arbeiten-sie-lokal)
+  - [2.5. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße](#25-stellen-sie-ihr-schachbrett-noch-vom-kopf-auf-die-füße)
 - [3. Schlussbemerkung](#3-schlussbemerkung)
 
 ## 1.2. Aufbau des Projektes
@@ -154,10 +151,7 @@ Sie sollten dann (nach kurzer Synchronisation) Ihren Namespace in dem für Sie b
    ```
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
-___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
-etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
-nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
-`Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
+___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge, etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination `Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
 
 ## 2.3. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
 
@@ -188,156 +182,11 @@ nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hil
    ```
 6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
 
-___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
-etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
-nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
-`Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
+___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge, etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination `Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
 
 Das Resultat sollte in etwa wie [hier](https://webtech.mylab.th-luebeck.de/chessboard) aussehen.
 
-## 2.4. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
-
-Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](https://webtech.mylab.th-luebeck.de/chessboard) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
-
-1. `index.html` (Versuchen Sie die Nummerierung der Zeilen anzupassen.)
-2. `style.css` (Versuchen Sie die Farbgebung des Schachbretts anzupassen.)
-3. `main.dart` (Versuchen Sie rauszufinden, welche Zeilen für welche Figuren verantwortlich sind und passen Sie diese an.)
-
-eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht. Wenn Sie damit fertig sind, wenden Sie sich bitte an einen Betreuer und erklären:
-
-1. Welche Änderungen in der `index.html` erforderlich waren und warum?
-2. Welche Änderungen in der `style.css` erforderlich waren und warum?
-3. Welche Änderungen in der `main.dart` erforderlich waren und warum?
-
-Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwick## Starten Sie die WebIDE und legen Sie die Struktur eines Schachbretts mit Hilfe von HTML an
-
-1. Navigieren Sie zu __Repository__ -> __Files__
-2. Klicken Sie auf __Web-IDE__
-3. Öffnen Sie die Datei: __web/index.html__
-4. Fügen Sie __hinter__ `<div id="output"></div>` folgenden Inhalt ein:
-    ```HTML
-    <table id="chess">
-        <tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td></tr>
-        <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    </table>
-    ```
-5. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
-6. Warten Sie, bis die Build-Pipeline durchlaufen wurde. Sie können den Buildprozess wie folgt nachverfolgen:
-   - Navigieren Sie unter Ihrem Projekt (evtl. müssen Sie dazu die Web-IDE verlassen) zu __CI/CD__ -> __Pipelines__
-       - Es wird eine Tabelle aller vergangenen, und auch des aktuellen Buildprozesses angezeigt. Das blaue runde Icon in der Spalte "Stages" zeigt an, dass der build läuft. Sobald dieser abgeschlossen ist, wird stattdessen ein grünes Häkchen angezeigt.
-   - Klicken Sie bei dem obersten Eintrag auf das blaue Icon in der Spalte "Stages"
-   - Klicken Sie gerne auf die einzlnen Jobs. Sie sehen dort die Konsolenausgaben der einzelnen Buildjobs (ggf. für Fehlersuchen ganz hilfreich).
-7. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
-   ```Bash
-   kubectl port-forward svc/master-webapp-svc 8888:80
-   ```
-8. Sie sollten nun eine unstyled Tabelle (Schachbrett) sehen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
-
-## 2.5. Gestalten Sie das Schachbrett mit Hilfe von CSS
-
-1. Öffnen Sie in der __Web-IDE__ die Datei: __web/style.css__
-2. Ergänzen Sie die folgenden CSS Regeln
-    ```CSS
-    #chess {
-        border-collapse: collapse;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #chess td {
-        font-size: 40px;
-        width: 60px;
-        height: 60px;
-        color: black;
-        background: lightgrey;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    #chess tr:nth-child(odd) td:nth-child(odd),
-    #chess tr:nth-child(even) td:nth-child(even) {
-        background: darkgray;
-    }
-
-    #chess tr:first-child td, #chess tr td:first-child {
-        background: white !important;
-        text-align: center;
-        font-size: 20px;
-    }
-    ```
-3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
-4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
-   ```Bash
-   kubectl port-forward svc/master-webapp-svc 8888:80
-   ```
-6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
-
-___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
-etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
-nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
-`Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
-
-## 2.6. Platzieren Sie Schachfiguren auf dem Schachbrett (im DOM-Tree) mit Hilfe von Dart
-
-1. Öffnen Sie in der __Web-IDE__ die Datei: __web/main.dart__
-2. Ergänzen Sie in der `main()`-Methode folgende Codezeilen.
-    ```Dart
-    // White
-    querySelectorAll('#chess tr:nth-child(3) td:nth-child(n+2)').forEach((td) { td.innerHtml = "&#9817;"; });
-    querySelectorAll('#chess tr:nth-child(2) td:nth-child(2), #chess tr:nth-child(2) td:nth-child(9)').forEach((td) { td.innerHtml = "&#9814;"; });
-    querySelectorAll('#chess tr:nth-child(2) td:nth-child(3), #chess tr:nth-child(2) td:nth-child(8)').forEach((td) { td.innerHtml = "&#9816;"; });
-    querySelectorAll('#chess tr:nth-child(2) td:nth-child(4), #chess tr:nth-child(2) td:nth-child(7)').forEach((td) { td.innerHtml = "&#9815;"; });
-    querySelector('#chess tr:nth-child(2) td:nth-child(6)').innerHtml = "&#9812;";
-    querySelector('#chess tr:nth-child(2) td:nth-child(5)').innerHtml = "&#9813;";
-
-    // Black
-    querySelectorAll('#chess tr:nth-child(8) td:nth-child(n+2)').forEach((td) { td.innerHtml = "&#9823;"; });
-    querySelectorAll('#chess tr:nth-child(9) td:nth-child(2), #chess tr:nth-child(9) td:nth-child(9)').forEach((td) { td.innerHtml = "&#9820;"; });
-    querySelectorAll('#chess tr:nth-child(9) td:nth-child(3), #chess tr:nth-child(9) td:nth-child(8)').forEach((td) { td.innerHtml = "&#9822;"; });
-    querySelectorAll('#chess tr:nth-child(9) td:nth-child(4), #chess tr:nth-child(9) td:nth-child(7)').forEach((td) { td.innerHtml = "&#9821;"; });
-    querySelector('#chess tr:nth-child(9) td:nth-child(5)').innerHtml = "&#9819;";
-    querySelector('#chess tr:nth-child(9) td:nth-child(6)').innerHtml = "&#9818;";
-    ```
-3. Klicken Sie auf __Commit__ wählen dann __Commit to master branch__ und schließen mit __Commit__ ab.
-4. Warten Sie bis die Build-Pipeline durchlaufen wurde.
-5. Öffen Sie dann **Lens**. Beenden Sie ggf. ein noch existentes Port-Forwarding und starten ein neues, um das Resultat unter [http://localhost:8888](http://localhost:8888) zu sehen:
-   ```Bash
-   kubectl port-forward svc/master-webapp-svc 8888:80
-   ```
-6. Sie sollten nun ein gut erkennbares Schachbrett erkennen (wenn nicht, wenden Sie sich bitte an einen Betreuer).
-
-___Tipp:__ Probieren Sie erst den Browser Firefox aus, sollten Sie keine Änderungen sehen. Browser wie Chrome, Safari, Edge,
-etc. cachen aus Performancegründen häufig recht "optimistisch" - insbesondere Änderungen an CSS und JS (Dart) Dateien werden
-nicht immer vom Webserver nachgeladen (da sich diese selten ändern!). Meist hilft bei Chrome und Konsorten auch die Tastenkombination
-`Shift` + `Strg` + `r` (`Shift` + `Cmd` + `r` auf Mac), um die Webseite am Browsercache vorbei neu zu laden._
-
-Das Resultat sollte in etwa wie [hier](https://webtech.mylab.th-luebeck.de/chessboard) aussehen.
-
-## 2.7. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
-
-Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](https://webtech.mylab.th-luebeck.de/chessboard) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
-
-1. `index.html` (Versuchen Sie die Nummerierung der Zeilen anzupassen.)
-2. `style.css` (Versuchen Sie die Farbgebung des Schachbretts anzupassen.)
-3. `main.dart` (Versuchen Sie rauszufinden, welche Zeilen für welche Figuren verantwortlich sind und passen Sie diese an.)
-
-eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht. Wenn Sie damit fertig sind, wenden Sie sich bitte an einen Betreuer und erklären:
-
-1. Welche Änderungen in der `index.html` erforderlich waren und warum?
-2. Welche Änderungen in der `style.css` erforderlich waren und warum?
-3. Welche Änderungen in der `main.dart` erforderlich waren und warum?
-
-Konnten Sie die Fragen beantworten, sind Sie fertig für heute und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwickelndes Spiel nutzen können ;-)
-
-## 2.8. Arbeiten Sie lokal
+## 2.4. Arbeiten Sie lokal
 
 Sie haben gemerkt, dass die Build-Pipeline immer recht viel Zeit in Anspruch nimmt. Es ist daher für die tägliche Projektarbeit sinnvoll, lokal auf Ihrem eigenen Rechner arbeiten zu können und einzelne Anpassungen vornehmen zu können und diese direkt lokal austesten zu können. Erst wenn Ihre Änderungen lokal funktionieren, sollten Sie dann in das Repository pushen und so die oben gezeigte Build-Pipeline anstoßen.
 
@@ -359,11 +208,29 @@ Lokales Arbeiten:
    > webdev serve
    ```
 4. Dies startet einen Build Daemon (genau derselbe wie in der Build-Pipeline). Dieser überwacht das Verzeichnis und alle in diesem Verzeichnis befindlichen Dateien und startet unter [http://127.0.0.1:8080](http://127.0.0.1:8080) einen Webserver unter dem Ihre Webapp lokal abgerufen und getestet werden kann. Öffnen Sie die URL mit Ihrem Browser, um es auszuprobieren.
-5. Probieren Sie es aus. Fügen Sie bspw. der `index.html` Datei folgende Überschrift hinzu `<h1>Local Test</h1>` und speichern Sie die Datei. Beobachten Sie das Terminal. Die Änderung wird erkannt, eine Rekompilierung angestoßen. Anschließend können Sie unter [http://127.0.0.1:8080](http://127.0.0.1:8080) die Änderung lokal sehen.
+5. Probieren Sie es aus. Fügen Sie bspw. der `index.html` Datei folgende Überschrift hinzu `<h1>Dart Chess</h1>` und speichern Sie die Datei. Beobachten Sie das Terminal. Die Änderung wird erkannt, eine Rekompilierung angestoßen. Anschließend können Sie unter [http://127.0.0.1:8080](http://127.0.0.1:8080) die Änderung lokal sehen.
 6. Klicken Sie in VSCode nun auf den GIT-Reiter (Quellcode-Verwaltung). Dort finden Sie unter `Änderungen` alle Änderungen, die Sie zum Stand gemacht haben, den Sie im Schritt 1 herunter geladen haben.
 7. Übernehmen Sie nun mittels `+` alle Änderungen als `gestagte Änderungen`. Damit merken Sie diese für einen Commit in GIT vor. Geben Sie nun eine Commit-Nachricht ein, z.B. `Mein erster Commit`. Klicken Sie auf das "Häkchen". Dies committed alle Änderung in die lokale Version ihres Repositories.
 8. Um diese lokalen Änderungen auch an den Gitlab Server zu übertragen, müssen sie diese "pushen". Klicken Sie hierzu in VSCode in der unteren Statusleiste neben `master` auf das Synchronisationsfeld. Dort sollten 0 Commits zum Pull und 1 Commits zum Push stehen. Durch Klicken der Synchronisationsfeldes können Sie diese Änderungen nun an das zentrale Repository übertragen. Dieser Vorgang stößt die Build-Pipeline an und Sie können Ihre lokalen Änderungen zentral im Kubernetes Cluster bereitstellen.
 9. Vollziehen Sie gerne in Lens und in der [CI/CD Pipeline](-/pipelines) nach, dass Ihre Änderung erfolgreich gepushed wurde und die Build-Pipeline anläuft.
+
+## 2.5. Stellen Sie Ihr Schachbrett noch vom Kopf auf die Füße
+
+Ihr Resultat wird vermutlich nicht exakt wie diese [Grundstellung](https://webtech.mylab.th-luebeck.de/chessboard) aussehen. Ihr Schachbrett steht noch irgendwie Kopf. Korrigieren Sie die Copy/Paste Snippets, die Sie in die Dateien
+
+1. `index.html` (Versuchen Sie die Nummerierung der Zeilen anzupassen.)
+2. `style.css` (Versuchen Sie die Farbgebung des Schachbretts anzupassen.)
+3. `main.dart` (Versuchen Sie rauszufinden, welche Zeilen für welche Figuren verantwortlich sind und passen Sie diese an.)
+
+eingefügt haben, so, dass die "normale" Grundstellung im Schach entsteht.
+
+Machen Sie Ihre Änderungen erst lokal bei sich, pushen sie dann erst ins Repository. Wenn Sie damit fertig sind, wenden Sie sich bitte an einen Betreuer und erklären:
+
+1. Welche Änderungen in der `index.html` erforderlich waren und warum?
+2. Welche Änderungen in der `style.css` erforderlich waren und warum?
+3. Welche Änderungen in der `main.dart` erforderlich waren und warum?
+
+Konnten Sie die Fragen beantworten, sind Sie fertig und können sich fragen, wie Sie Ihre Erkenntnisse für Ihr zu entwickelndes Spiel nutzen können.
 
 # 3. Schlussbemerkung
 
