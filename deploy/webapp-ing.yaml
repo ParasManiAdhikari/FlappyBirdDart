@@ -2,9 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: webapp-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt"
 spec:
   rules:
-  - host: "master-{{ HOST }}"
+  - host: "{{ HOST }}"
     http:
       paths:
       - path: "/"
@@ -37,6 +39,6 @@ spec:
   tls:
   - secretName: webapp-ing-cert
     hosts: 
-    - "master-{{ HOST }}"
+    - "{{ HOST }}"
     - "staging-{{ HOST }}"
     - "working-{{ HOST }}"
