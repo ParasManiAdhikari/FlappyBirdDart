@@ -18,3 +18,10 @@ spec:
         image: {{ CI_REGISTRY_IMAGE }}/webapp-{{ CI_COMMIT_REF_NAME }}:latest
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+          periodSeconds: 60
+          failureThreshold: 1
+
