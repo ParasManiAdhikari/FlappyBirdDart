@@ -23,16 +23,16 @@ registry-cred:
               --docker-username=image-registry \ 
               --docker-password=$CI_REGISTRY_TOKEN"
 
-source:
-  image: dart/dart:2.16-sdk
-  stage: compile
-  script:
-  - pub global activate webdev
-  - pub get
-  - webdev build --output web:build
-  artifacts:
-    paths:
-    - build
+# source:
+#   image: dart/dart:2.16-sdk
+#   stage: compile
+#   script:
+#   - pub global activate webdev
+#   - pub get
+#   - webdev build --output web:build
+#   artifacts:
+#     paths:
+#     - build
 
 container:
   stage: build
