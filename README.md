@@ -234,4 +234,4 @@ Konnten Sie die Fragen beantworten, sind Sie fertig und können sich fragen, wie
 
 # 3. Schlussbemerkung
 
-Gegenstand des Moduls Webtechnologie-Projekt sind Webtechnologien und nicht GitLab, Deployment Pipelines und Kubernetes. Diese Technologien werden zur Automatisierung von Deployments und einen angenehmeren Workflow genutzt, müssen durch Sie aber in aller Regel nicht angepasst werden. Wer dazu mehr hören möchte, sei auf die Mastermodule *Cloud-native Programmierung* und *Cloud-native Architekturen* des Masterstudiengangs *Informatik/Verteilte Systeme* verwiesen ;-)
+Gegenstand des Moduls Webtechnologie-Projekt sind vor allem Webtechnologien und nur am Rande GitLab, Deployment Pipelines und Kubernetes. Diese Technologien werden zur Automatisierung von Deployments und einen angenehmeren Workflow zunehmend häufiger genutzt, müssen durch Sie aber in diesem Kurs in aller Regel nur minimal angepasst bzw. fortgeschrieben oder ergänzt werden. Wer zu diesen Technologien mehr hören möchte, sei auf die Mastermodule *Cloud-native Programmierung* und *Cloud-native Architekturen* des Masterstudiengangs *Informatik/Verteilte Systeme* verwiesen ;-)
