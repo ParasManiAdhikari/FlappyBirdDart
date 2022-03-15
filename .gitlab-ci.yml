@@ -24,7 +24,7 @@ registry-cred:
               --docker-password=$CI_REGISTRY_TOKEN"
 
 source:
-  image: google/dart:2.12
+  image: dart/dart:2.16-sdk
   stage: compile
   script:
   - pub global activate webdev
