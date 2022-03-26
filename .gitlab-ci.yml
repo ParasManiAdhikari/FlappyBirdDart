@@ -23,17 +23,6 @@ registry-cred:
               --docker-username=image-registry \ 
               --docker-password=$CI_REGISTRY_TOKEN"
 
-# source:
-#   image: dart/dart:2.16-sdk
-#   stage: compile
-#   script:
-#   - pub global activate webdev
-#   - pub get
-#   - webdev build --output web:build
-#   artifacts:
-#     paths:
-#     - build
-
 container:
   stage: build
   image:
@@ -42,7 +31,6 @@ container:
   script:
   - mkdir -p /kaniko/.docker
   - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-  - ls -lah build/
   - /kaniko/executor --context . --destination $CI_REGISTRY_IMAGE/webapp-$CI_COMMIT_REF_NAME:latest
 
 webapp:
@@ -59,11 +47,3 @@ ingress:
       - $INGRESS == "True"
   script:
   - HOST=webapp-$CI_PROJECT_ID.$DOMAIN mo deploy/webapp-ing.yaml | kubectl apply -f -
-
-terminate:
-  stage: destroy
-  when: manual
-  script:
-  - mo deploy/webapp-dep.yaml | kubectl delete -f - || true
-  - mo deploy/webapp-svc.yaml | kubectl delete -f - || true
-  - HOST=webapp-$GITLAB_USER_ID-$CI_COMMIT_REF_NAME.$DOMAIN mo deploy/webapp-ing.yaml | kubectl delete -f - || true
