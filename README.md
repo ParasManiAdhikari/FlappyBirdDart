@@ -4,7 +4,7 @@ Benutzen Sie dieses Projekt bitte als Ausgangspunkt für Ihre erste Aufgabe. Es 
 
 - Dart 2 Web-Projekte
 
-mit einer Build-Pipeline deployen können. Das Repository für Ihr Projekt wird analog aufgebaut sein und Ihnen für Ihr Team bereitgestellt werden.
+mit einer Build-Pipeline deployen können. Dieses Repository sollen Sie als Ausgangspunkt für weitere Labs und Ihr Webtech-Projekt nehmen.
 
 In den folgenden Schritten lernen Sie:
 
