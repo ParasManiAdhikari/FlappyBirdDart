@@ -204,7 +204,7 @@ Lokales Arbeiten:
 3. Geben Sie in diesem Terminal folgendes ein:
    ```Bash
    > dart pub global activate webdev
-   > pub get
+   > dart pub get
    > webdev serve
    ```
 4. Dies startet einen Build Daemon (genau derselbe wie in der Build-Pipeline). Dieser überwacht das Verzeichnis und alle in diesem Verzeichnis befindlichen Dateien und startet unter [http://127.0.0.1:8080](http://127.0.0.1:8080) einen Webserver unter dem Ihre Webapp lokal abgerufen und getestet werden kann. Öffnen Sie die URL mit Ihrem Browser, um es auszuprobieren.
