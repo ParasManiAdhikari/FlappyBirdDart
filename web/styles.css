@@ -12,3 +12,30 @@ html, body {
   padding: 20px;
   text-align: center;
 }
+
+#chess {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#chess td {
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    color: black;
+    background: lightgrey;
+    text-align: center;
+    font-weight: bold;
+}
+
+#chess tr:nth-child(odd) td:nth-child(odd),
+#chess tr:nth-child(even) td:nth-child(even) {
+    background: darkgray;
+}
+
+#chess tr:first-child td, #chess tr td:first-child {
+    background: white !important;
+    text-align: center;
+    font-size: 20px;
+}
