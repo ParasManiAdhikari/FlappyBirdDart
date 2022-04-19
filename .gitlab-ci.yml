@@ -26,10 +26,10 @@ registry-cred:
 container:
   stage: build
   script:
-    - cd api
+    - cd web
     - img login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - img build -t $CI_REGISTRY_IMAGE/api:latest .
-    - img push $CI_REGISTRY_IMAGE/api:latest
+    - img build -t $CI_REGISTRY_IMAGE/webapp-$CI_COMMIT_REF_NAME:latest .
+    - img push $CI_REGISTRY_IMAGE/webapp-$CI_COMMIT_REF_NAME:latest
 
 webapp:
   stage: deploy
