@@ -4,6 +4,7 @@ void main() {
   querySelector('#output').text =
       'Hooray, your first barebones Dart app is running!';
   // White
+  // test
   querySelectorAll('#chess tr:nth-child(3) td:nth-child(n+2)').forEach((td) {
     td.innerHtml = "&#9823;";
   });
