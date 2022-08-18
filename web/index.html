@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="scaffolded-by" content="https://github.com/google/stagehand">
-    <title>demo</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
-    <script defer src="main.dart.js"></script>
-</head>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script defer src='main.dart.js'></script>
+  </head>
+ 
+  <body>
+    <div id="overlay"></div>
 
-<body>
-  <h1 id="topic">Dart Chess</h1>
-  <div id="output"></div>
-  <table id="chess">
-    <tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td></tr>
-    <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-</table>
+    <div class="container">
+      <h1 id="title">Flappy Bird</h1>
+      
+      <div id='welcome'>
+        <div id='highscore'></div>
+        <span id="start">Start</span>
+      </div>
+      
+      <div id='message'>
+        <div id='gameover'></div>
+        <div id='reasons'></div>
+      </div>
 
+      <table id='snakegame'>
+      </table>
+      
+      <div id='controls'>
+        <span id='points'></span>
+      </div>
 
-</body>
+      <p>
+        <small>
+          &copy; Paras Adhikari, 2021 - 2022<br>
+        </small>
+      </p>
+    </div>
+  </body>
 </html>
