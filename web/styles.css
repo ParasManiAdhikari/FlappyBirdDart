@@ -13,7 +13,7 @@
   /* Positionierung */
   position: relative;
   overflow: hidden;
-  background-image: url('img/background.gif');
+  background-image: url('img/static.jpg');
 }
 
 .ball {

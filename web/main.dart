@@ -99,6 +99,7 @@ class View {
       pipeDown?.style.animation = 'stopped';
       pipeUp?.style.left = '${pipeUpLeft}px'; //freeze pipes at collision
       pipeDown?.style.left = '${pipeDownLeft}px';
+      field?.style.backgroundImage = "url('img/static.jpg')"; //freeze background
     }
   }
 }
@@ -137,6 +138,7 @@ void main() {
     pipeUp?.style.animation =
         "pipeanim 3s infinite linear"; //resume pipe animation
     pipeDown?.style.animation = "pipeanim 3s infinite linear";
+    field?.style.backgroundImage = "url('img/background.gif')"; //move background
 
     while (gamestate == #on) {
       newField.myBall.ballDownwards();
