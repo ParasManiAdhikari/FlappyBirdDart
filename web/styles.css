@@ -5,33 +5,41 @@
   margin-top: 3%;
   margin-left: auto;
   margin-right: auto;
-  
+
   /* Aussehen */
   border: 1px solid white;
   border-radius: 10px;
-  
+
   /* Positionierung */
   position: relative;
   overflow: hidden;
+  background-image: url('img/background.gif');
 }
 
 .ball {
   /* Groesse und Form */
   width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  
+  height: 35px;
+
+  background-size: contain;
+
   /* Aussehen */
-  background: dodgerblue;
-  
-  /* Positionierung */ 
+  background-image: url('img/bird.png');
+
+  /* Positionierung */
   position: absolute;
   left: 100px;
 }
 
-@keyframes ballUp{
-  0%{left: 710px}
-  100%{left:-30px}
+
+@keyframes ballUp {
+  0% {
+    left: 710px
+  }
+
+  100% {
+    left: -30px
+  }
 }
 
 
@@ -39,22 +47,23 @@
   /* Groesse */
   height: 60px;
   width: 70px;
-  
+
   /* Aussehen */
   color: white;
   font-size: 2.5em;
   background-color: #168afd;
   border-radius: 10px;
-  
-  /* Positionierung */ 
+
+  /* Positionierung */
   margin-top: 20px;
 }
 
 #gameover {
   color: orange;
+  display: none;
 }
 
-#points{
+#points {
   display: none;
 }
 
@@ -62,10 +71,11 @@
 body {
   font-family: Object Sans;
   text-align: center;
-  background:radial-gradient(#B1D7B4 60%, #7FB77E);
+  background: radial-gradient(#B1D7B4 60%, #7FB77E);
+  color: white;
 }
 
-.title{
+.title {
   font-size: 1em;
   margin-top: 0px;
   color: green;
@@ -78,44 +88,49 @@ h1 {
   text-align: center;
   font-weight: bolder;
   outline-color: blue;
- 
-  
-  /* Positionierung */ 
+
+
+  /* Positionierung */
   margin: 1em;
   margin-bottom: 0.5em;
 }
 
 .pipe_up {
-	/*Große*/
-	height: 400px;
-	width: 50px;
-  
+  /*Große*/
+  height: 400px;
+  width: 50px;
+
   /*Aussehen*/
-	background:radial-gradient(lightgreen 50%, green);
-	border: 5px solid black;
-  animation: pipeanim 3s infinite linear;
-  
-  /* Positionierung */ 
-  top: -50px;               /*starting value*/
+  background: radial-gradient(lightgreen 50%, green);
+  border: 5px solid black;
+  left: 800px;
+  /* Positionierung */
+  top: -50px;
+  /*starting value*/
   position: absolute;
 }
 
 .pipe_down {
   /*Große*/
   width: 50px;
-  
+
   /*Aussehen*/
   height: 500px;
-  background:radial-gradient(lightgreen 50%, green);
+  background: radial-gradient(lightgreen 50%, green);
   border: 5px solid black;
-  animation: pipeanim 3s infinite linear;
-  
-   /* Positionierung */ 
-  top: 550px;               /*starting value*/
+  left: 800px;
+  /* Positionierung */
+  top: 550px;
+  /*starting value*/
   position: absolute;
 }
 
-@keyframes pipeanim{
-  0%{left: 760px}
-  100%{left: -60px}
+@keyframes pipeanim {
+  0% {
+    left: 760px
+  }
+
+  100% {
+    left: -60px
+  }
 }
