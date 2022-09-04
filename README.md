@@ -1,3 +1,7 @@
+# Note From Me
+There isn't many commits in this repo because i worked all the fundamentals in DartPad and saved them in Github Gists.
+There you can see many commits. Link: https://gist.github.com/ParasManiAdhikari/a49cc828b115c0afee6e5066419ae350
+
 # 1. Bare-bones webapp
 
 Benutzen Sie dieses Projekt bitte als Ausgangspunkt für Ihre erste Aufgabe. Es ist so konfiguriert, dass Sie einfache
