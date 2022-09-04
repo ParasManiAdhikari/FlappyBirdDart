@@ -16,7 +16,7 @@
   background-image: url('img/static.jpg');
 }
 
-.ball {
+.bird {
   /* Groesse und Form */
   width: 50px;
   height: 35px;
@@ -30,18 +30,6 @@
   position: absolute;
   left: 100px;
 }
-
-
-@keyframes ballUp {
-  0% {
-    left: 710px
-  }
-
-  100% {
-    left: -30px
-  }
-}
-
 
 #sbutton {
   /* Groesse */
