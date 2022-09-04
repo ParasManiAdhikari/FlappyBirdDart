@@ -11,11 +11,11 @@ var pipeUp = querySelector("#field .pipe_up");
 final pipeDown = querySelector("#field .pipe_down");
 final points = querySelector("#points");
 
-
 final fieldwidth = field?.getBoundingClientRect().width.toInt() ?? 0; //700
 final fieldheight = field?.getBoundingClientRect().height.toInt() ?? 0; //600
-final birdHeight = bird?.getBoundingClientRect().height.toInt() ?? 0; //50
+final birdHeight = bird?.getBoundingClientRect().height.toInt() ?? 0; //35
 
+/* Model */
 class Field{
   int width;
   int height;
@@ -41,7 +41,6 @@ class Pipe{
     this.pipeUpBottom = pipeUpBottom;
     this.pipeDownTop = pipeDownTop;
   }
-  
 }
 
 class Bird{
@@ -62,6 +61,7 @@ class Bird{
   }
 }
 
+/*VIEW*/
 class View{
   Field newField;
   View(this.newField);
@@ -73,7 +73,7 @@ class View{
       points?.text = 'Points: ${newField.pipesPassed}';
       
       //VALUES NEEDED FOR COLLISION
-      int birdTop = newField.myBird.distanceFromTop;
+      var birdTop = newField.myBird.distanceFromTop;
       var birdBottom = birdTop + 35; // 35 bird height
       var fieldLeft = field?.getBoundingClientRect().left.toInt() ?? 0;
       var pipeUpLeft = (pipeUp?.getBoundingClientRect().left.toInt() ?? 0) - fieldLeft;
@@ -81,12 +81,12 @@ class View{
       var pipeDownLeft = (pipeDown?.getBoundingClientRect().left.toInt() ?? 0) - fieldLeft;  
     
       /*
-       collision happens when 
+       Collision happens when 
        pipes are in the same x axis ↔️ of the bird 
-       && if bird is in the same y axis ↕️ as pipes 
+       && if pipes are in the same y axis ↕️ as the bird 
       */
       bool collision = (birdTop < newField.pipes.pipeUpBottom && pipeUpLeft < 150 && pipeUpLeft > 50) ||
-                        (birdBottom > newField.pipes.pipeDownTop && pipeDownLeft < 150 && pipeDownLeft > 50);
+                      (birdBottom > newField.pipes.pipeDownTop && pipeDownLeft < 150 && pipeDownLeft > 50);
     
       //print("${fieldLeft},${pipeUpLeft}");
     
@@ -104,17 +104,17 @@ class View{
    }
 }
 
+/*Controller not really required for this project*/
 class Controller{
   Field field;
   View view;
-  
   Controller(this.field, this.view);
 }
 
 void main() {
   Field newField = Field(fieldwidth, fieldheight);
   View view = View(newField);
-  Controller control = Controller(newField, view);
+  //Controller control = Controller(newField, view);
   
   //GAME START
   sbutton?.onClick.listen((_) async {                               //if start clicked run the main loop
@@ -137,7 +137,7 @@ void main() {
       });
    });
     
-   //KEY PRESS EVENTLISTENER 
+  //KEY PRESS EVENTLISTENER 
   window.onKeyUp.listen((_) {
     if(newField.gamestate == #on){
       newField.myBird.birdUpwards();
