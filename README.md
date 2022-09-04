@@ -4,7 +4,7 @@ Dort können Sie viele Commits sehen.
 - Link: https://gist.github.com/ParasManiAdhikari/a49cc828b115c0afee6e5066419ae350
 
 # Features
-- Voll Funktionsfähig Flappy Bird Spiel mit ähnlich Visuals
+- Voll-Funktionsfähig Flappy Bird Spiel mit ähnliche Visuals.
 
-# Play The Game:
+# Play The Game @:
 ## https://parasmaniadhikari.github.io/
