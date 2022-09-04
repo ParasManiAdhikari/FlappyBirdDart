@@ -1,13 +1,15 @@
+// ignore_for_file: prefer_single_quotes
+
 import 'dart:html';
 import 'dart:math';
 import 'dart:async';
-final field = querySelector("#field");
-final ball = querySelector("#field .ball");
-final gameover = querySelector("#gameover");
-final sbutton = querySelector("#sbutton");
-var pipeUp = querySelector("#field .pipe_up");
-final pipeDown = querySelector("#field .pipe_down");
-final points = querySelector("#points");
+final field = querySelector('#field');
+final ball = querySelector('#field .ball');
+final gameover = querySelector('#gameover');
+final sbutton = querySelector('#sbutton');
+var pipeUp = querySelector('#field .pipe_up');
+final pipeDown = querySelector('#field .pipe_down');
+final points = querySelector('#points');
 
 
 Symbol gamestate = #on;
@@ -23,8 +25,8 @@ int pipeDownTop = 0;
 class Field{
   int width;
   int height;
-  Ball myBall = null;
-  Pipe pipes = null;
+  late Ball myBall;
+  late Pipe pipes;
   
   Field(this.width, this.height){
     myBall = Ball(this, ballHeight);
@@ -43,6 +45,7 @@ class Pipe{
     this.pipeUpBottom = pipeUpBottom;
     this.pipeDownTop = pipeDownTop;
   }
+  
 }
 
 class Ball{
@@ -68,41 +71,43 @@ class View{
   View(this.newField);
   
   void update() {
-      int ballTop = newField.myBall.distanceFromTop;
-      ball?.style.top = "${newField.myBall.distanceFromTop}px";
-      points?.text = "Points: ${pipesPassed}";
+      var ballTop = newField.myBall.distanceFromTop;
+      ball?.style.top = '${newField.myBall.distanceFromTop}px';
+      points?.text = 'Points: $pipesPassed';
       
       /*
        COLLISION - for it we need to see if pipes are in the same x axis of the ball 
        and if ball is in the same y axis as pipes 
       */
-      var pipeUpLeft = (pipeUp?.getBoundingClientRect().left.toInt() ?? 0) - 200;
-      var pipeDownLeft = (pipeDown?.getBoundingClientRect().left.toInt() ?? 0) - 200;  //-185 cos the value gotten is 185 high
+      var fieldLeft = field?.getBoundingClientRect().left.toInt() ?? 0;
+      var pipeUpLeft = (pipeUp?.getBoundingClientRect().left.toInt() ?? 0) - fieldLeft;
+      var pipeDownLeft = (pipeDown?.getBoundingClientRect().left.toInt() ?? 0) - fieldLeft;  //subtract fieldLeft because it is different for different screen resolutions
       var ballBottom = ballTop + 50;
-      bool collision = (ballTop < newField.pipes.pipeUpBottom && pipeUpLeft < 150 && pipeUpLeft > 50) ||
+      var collision = (ballTop < newField.pipes.pipeUpBottom && pipeUpLeft < 150 && pipeUpLeft > 50) ||
                         (ballBottom > newField.pipes.pipeDownTop && pipeDownLeft < 150 && pipeDownLeft > 50);
     
+      //print("${fieldLeft},${pipeUpLeft}, ${ball?.getBoundingClientRect().left.toInt() ?? 0}");
       if(ballTop >= (fieldheight - ballHeight) || collision){
         gamestate = #off;
         ballTop -= - 2;                                 //freeze the ball
-        gameover?.style.display = "inline-block";       //show buttons
-        sbutton?.style.display = "inline-block";
-        pipeUp?.style.animation = "stopped";            //stop pipe animation
-        pipeDown?.style.animation = "stopped";
-        pipeUp?.style.left = "${pipeUpLeft}px";         //freeze pipes at collision
-        pipeDown?.style.left = "${pipeDownLeft}px";
+        gameover?.style.display = 'inline-block';       //show buttons
+        sbutton?.style.display = 'inline-block';
+        pipeUp?.style.animation = 'stopped';            //stop pipe animation
+        pipeDown?.style.animation = 'stopped';
+        pipeUp?.style.left = '${pipeUpLeft}px';         //freeze pipes at collision
+        pipeDown?.style.left = '${pipeDownLeft}px';
       }
    }
 }
 
 void main() {
-  Field newField = Field(fieldwidth, fieldheight);
-  View view = View(newField);
+  var newField = Field(fieldwidth, fieldheight);
+  var view = View(newField);
   
   pipeUp?.on['animationiteration'].listen((_) {                    //runs before new animation
-    int pipeUpTop = Random().nextInt(400) * -1;                    //random pipe_up top from 0 to -400
-    pipeUp?.style.top = "${pipeUpTop}px";              
-    pipeDown?.style.top = "${pipeUpTop + 600}px";                  //pipe_down top is pipe_up top + pipe_up height + gap (200)
+    var pipeUpTop = Random().nextInt(400) * -1;                    //random pipe_up top from 0 to -400
+    pipeUp?.style.top = '${pipeUpTop}px';              
+    pipeDown?.style.top = '${pipeUpTop + 600}px';                  //pipe_down top is pipe_up top + pipe_up height + gap (200)
     
     /*Saving important dimensions of the new pipe for later collision testing*/
     pipeUpBottom = pipeUpTop + 400;
@@ -111,7 +116,7 @@ void main() {
     pipesPassed += 1;
   });
   
-  gameover?.style.display = "none";
+  gameover?.style.display = 'none';
   
   sbutton?.onClick.listen((_) async {                               //if start clicked run the main loop
       gamestate = #on;
