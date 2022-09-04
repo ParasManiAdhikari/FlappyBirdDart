@@ -1,5 +1,3 @@
-// ignore_for_file: omit_local_variable_types, prefer_single_quotes
-
 import 'dart:html';
 import 'dart:math';
 import 'dart:async';
