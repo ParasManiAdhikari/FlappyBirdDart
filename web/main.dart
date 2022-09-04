@@ -32,13 +32,15 @@ class Field {
 }
 
 class Pipe {
+  int pipeUpTop = -50;                                             //first pipes values
   int pipeUpBottom = 350;
-  int pipeDownTop = 550;
+  int pipeDownTop = 470;                                           //GAP = 120px
   Field field;
 
   Pipe(this.field);
 
-  void storeValues(int pipeUpBottom, int pipeDownTop) {
+  void storeValues(int pipeUpTop, int pipeUpBottom, int pipeDownTop) {
+    this.pipeUpTop = pipeUpTop;
     this.pipeUpBottom = pipeUpBottom;
     this.pipeDownTop = pipeDownTop;
   }
@@ -69,6 +71,8 @@ class View {
     //UPDATE BIRD POSITION & POINTS
     bird?.style.top = '${newField.myBird.distanceFromTop}px';
     points?.text = 'Points: ${newField.pipesPassed}';
+    pipeUp?.style.top = "${newField.pipes.pipeUpTop}px";
+    pipeDown?.style.top ="${newField.pipes.pipeDownTop}px";       //pipe_down top is pipe_up top + pipe_up height + gap (200)
 
     //VALUES NEEDED FOR COLLISION
     var birdTop = newField.myBird.distanceFromTop;
@@ -154,16 +158,13 @@ void main() {
 
   //NEW ANIMATION EVENTLISTENER
   pipeUp?.on['animationiteration'].listen((_) {
-    int pipeUpTop =
-        Random().nextInt(400) * -1;                               //random pipe_up top from 0 to -400
-    pipeUp?.style.top = "${pipeUpTop}px";
-    pipeDown?.style.top =
-        "${pipeUpTop + 600}px";                                   //pipe_down top is pipe_up top + pipe_up height + gap (200)
 
     //SAVE PIPE DIMENSIONS FOR COLLISION TEST
+    int pipeUpTop = Random().nextInt(400) * -1;                   //random pipe_up top from 0 to -400
     int pipeUpBottom = pipeUpTop + 400;
-    int pipeDownTop = pipeUpTop + 600;
-    newField.pipes.storeValues(pipeUpBottom, pipeDownTop);
+    int pipeDownTop = pipeUpTop + 520;                            //GAP = 120px
+    newField.pipes.storeValues(pipeUpTop, pipeUpBottom, pipeDownTop);
     newField.pipesPassed += 1;
+    view.update();
   });
 }
