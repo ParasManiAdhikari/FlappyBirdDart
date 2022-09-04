@@ -1,6 +1,8 @@
 # Note From Me
 There isn't many commits in this repo because i worked all the fundamentals in DartPad and saved them in Github Gists.
-There you can see many commits. Link: https://gist.github.com/ParasManiAdhikari/a49cc828b115c0afee6e5066419ae350
+There you can see many commits. 
+Link: https://gist.github.com/ParasManiAdhikari/a49cc828b115c0afee6e5066419ae350
+Pipeline: Please check my pipeline error. It doesn't look like code error but Dart package error.
 
 # 1. Bare-bones webapp
 
