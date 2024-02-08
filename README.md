@@ -7,4 +7,4 @@ Dort können Sie viele Commits sehen.
 - Voll-Funktionsfähig Flappy Bird Spiel mit ähnliche Visuals.
 
 # Play The Game @:
-## https://parasxdhikari.github.io/flappy-bird-dart/
+## https://ParasManiAdhikari.github.io/flappy-bird-dart/
